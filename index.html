@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Crime Bite | Dinner. Mystery. Crime.</title>
-  <meta name="description" content="Crime Bite — Mystery Dinner Experience στην Αθήνα. Ένα δείπνο. Ένα μυστήριο. Εσύ μέσα στην ιστορία. Coming Soon.">
+  <meta
+    name="description"
+    content="Crime Bite — Mystery Dinner Experience στην Αθήνα. Coming November 2026."
+  />
 
   <style>
     * {
@@ -19,165 +22,229 @@
     }
 
     body {
-      background:
-        radial-gradient(circle at 50% 20%, rgba(120, 0, 0, 0.14), transparent 35%),
-        linear-gradient(180deg, #080808 0%, #000 100%);
-      color: #f1eee8;
-      font-family: Georgia, "Times New Roman", serif;
       min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(125, 0, 0, 0.18), transparent 32%),
+        radial-gradient(circle at 50% 75%, rgba(70, 0, 0, 0.08), transparent 45%),
+        #030303;
+      color: #eee8df;
+      font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
     }
 
-    .hero {
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.012) 50%, rgba(0,0,0,0.02) 50%);
+      background-size: 100% 4px;
+      opacity: 0.35;
+      z-index: 20;
+    }
+
+    .page {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
+      padding: 55px 22px 45px;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero::before {
+    .page::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.88)),
-        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.72) 70%);
+      box-shadow: inset 0 0 180px rgba(0,0,0,0.95);
       pointer-events: none;
     }
 
     .content {
       width: 100%;
-      max-width: 900px;
+      max-width: 920px;
+      text-align: center;
       position: relative;
       z-index: 2;
+      animation: reveal 1.4s ease both;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .logo {
-      width: min(720px, 92%);
       display: block;
-      margin: 0 auto 30px;
-      filter: drop-shadow(0 0 25px rgba(125, 0, 0, .28));
+      width: min(620px, 92vw);
+      margin: 0 auto 34px;
+      filter: drop-shadow(0 0 30px rgba(140,0,0,0.2));
     }
 
-    .eyebrow {
-      color: #a70808;
+    .kicker {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 12px;
+      color: #a20808;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 5px;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(30px, 5vw, 58px);
+      font-size: clamp(32px, 6vw, 62px);
+      line-height: 1.08;
       font-weight: 400;
-      line-height: 1.15;
+      letter-spacing: -1px;
       margin-bottom: 24px;
     }
 
-    .red {
-      color: #b50b0b;
+    h1 span {
+      color: #b10b0b;
     }
 
     .intro {
-      max-width: 660px;
+      max-width: 700px;
       margin: 0 auto;
       font-family: Arial, Helvetica, sans-serif;
-      color: #bdb8b2;
       font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.8;
+      line-height: 1.85;
+      color: #aaa39b;
     }
 
     .divider {
-      width: 90px;
+      width: 105px;
       height: 1px;
-      background: #8f0909;
+      background: linear-gradient(90deg, transparent, #8c0808, transparent);
       margin: 38px auto;
       position: relative;
     }
 
     .divider::after {
       content: "◆";
-      color: #a50b0b;
-      font-size: 10px;
-      background: #050505;
-      padding: 0 10px;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      color: #a80b0b;
+      background: #030303;
+      padding: 0 10px;
+      font-size: 9px;
     }
 
-    .question {
-      font-size: clamp(21px, 3vw, 31px);
-      font-weight: 400;
-      line-height: 1.5;
-      margin-bottom: 36px;
+    .steps {
+      margin: 0 auto 34px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(13px, 1.8vw, 16px);
+      letter-spacing: 3px;
+      color: #d3cdc4;
+      text-transform: uppercase;
+      line-height: 1.8;
+    }
+
+    .date {
+      margin-top: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #8c8580;
+      text-transform: uppercase;
     }
 
     .coming {
+      margin-top: 14px;
       font-family: Arial, Helvetica, sans-serif;
-      letter-spacing: 7px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      color: #ddd7cf;
+      letter-spacing: 7px;
+      color: #e1dad0;
     }
 
-    .athens {
-      font-family: Arial, Helvetica, sans-serif;
-      margin-top: 12px;
-      font-size: 11px;
-      letter-spacing: 4px;
-      color: #8b8580;
+    .case-line {
+      margin-top: 34px;
+      font-size: clamp(17px, 2.4vw, 23px);
+      font-style: italic;
+      color: #b9b2a9;
     }
 
-    .bottom {
+    .footer {
       margin-top: 55px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.06);
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       line-height: 2;
-      color: #79746f;
+      color: #6f6963;
     }
 
-    .bottom a {
-      color: #b7b1aa;
+    .footer a {
+      color: #b8b0a8;
       text-decoration: none;
-      transition: .25s ease;
+      transition: color 0.25s ease;
     }
 
-    .bottom a:hover {
-      color: #b50b0b;
+    .footer a:hover {
+      color: #b10b0b;
     }
 
-    .bloodline {
+    .socials {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .glow {
       position: absolute;
-      bottom: 0;
       left: 50%;
+      bottom: 0;
       transform: translateX(-50%);
-      width: 1px;
-      height: 70px;
-      background: linear-gradient(#9d0909, transparent);
-      opacity: .55;
+      width: 170px;
+      height: 90px;
+      background: radial-gradient(circle, rgba(120,0,0,0.16), transparent 70%);
+      filter: blur(14px);
+      pointer-events: none;
     }
 
     @media (max-width: 600px) {
-      .hero {
-        padding: 32px 18px;
+      .page {
+        padding: 38px 18px 32px;
       }
 
       .logo {
-        margin-bottom: 24px;
+        width: 94vw;
+        margin-bottom: 26px;
       }
 
-      .eyebrow {
+      .kicker {
         letter-spacing: 3px;
+        font-size: 10px;
+      }
+
+      .steps {
+        letter-spacing: 2px;
       }
 
       .coming {
         letter-spacing: 4px;
+      }
+
+      .socials {
+        gap: 12px;
       }
     }
   </style>
@@ -185,47 +252,64 @@
 
 <body>
 
-  <main class="hero">
+  <main class="page">
 
-    <div class="content">
+    <section class="content">
 
       <img
         src="crimebite-logo.png"
         alt="Crime Bite"
         class="logo"
-      >
+      />
 
-      <div class="eyebrow">MYSTERY DINNER EXPERIENCE</div>
+      <div class="kicker">Mystery Dinner Experience</div>
 
       <h1>
-        Δεν ήρθες μόνο<br>
-        <span class="red">για να φας.</span>
+        Κάτι συμβαίνει<br>
+        <span>στην Αθήνα.</span>
       </h1>
 
       <p class="intro">
-        Ένα δείπνο όπου τίποτα δεν είναι ακριβώς αυτό που φαίνεται.
-        Παρατήρησε. Σύνδεσε τα στοιχεία. Μπες μέσα στο μυστήριο.
+        Ένα δείπνο όπου δεν είσαι απλώς καλεσμένος.
+        Παρατήρησε. Σύνδεσε τα στοιχεία.
+        Μπες μέσα στο μυστήριο.
       </p>
 
       <div class="divider"></div>
 
-      <div class="question">
-        Πόσο καλά παρατηρείς<br>
-        όταν όλοι γύρω σου έχουν κάτι να κρύψουν;
+      <div class="steps">
+        Παρατήρησε • Σύνδεσε • Ανακάλυψε
       </div>
 
-      <div class="coming">COMING SOON</div>
-      <div class="athens">ATHENS</div>
-
-      <div class="bottom">
-        <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>
-        <br>
-        Dinner. Mystery. Crime.
+      <div class="date">
+        Athens • November 2026
       </div>
 
-    </div>
+      <div class="coming">
+        COMING SOON
+      </div>
 
-    <div class="bloodline"></div>
+      <div class="case-line">
+        Η υπόθεση δεν έχει ανοίξει ακόμα.
+      </div>
+
+      <div class="footer">
+
+        <a href="mailto:info@crimebite.gr">
+          info@crimebite.gr
+        </a>
+
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="glow"></div>
 
   </main>
 
