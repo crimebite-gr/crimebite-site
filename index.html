@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crime Bite | Dinner. Mystery. Crime.</title>
+  <meta name="description" content="Crime Bite — Mystery Dinner Experience στην Αθήνα. Ένα δείπνο. Ένα μυστήριο. Εσύ μέσα στην ιστορία. Coming Soon.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% 20%, rgba(120, 0, 0, 0.14), transparent 35%),
+        linear-gradient(180deg, #080808 0%, #000 100%);
+      color: #f1eee8;
+      font-family: Georgia, "Times New Roman", serif;
+      min-height: 100vh;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.88)),
+        radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.72) 70%);
+      pointer-events: none;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      width: min(720px, 92%);
+      display: block;
+      margin: 0 auto 30px;
+      filter: drop-shadow(0 0 25px rgba(125, 0, 0, .28));
+    }
+
+    .eyebrow {
+      color: #a70808;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .red {
+      color: #b50b0b;
+    }
+
+    .intro {
+      max-width: 660px;
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #bdb8b2;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.8;
+    }
+
+    .divider {
+      width: 90px;
+      height: 1px;
+      background: #8f0909;
+      margin: 38px auto;
+      position: relative;
+    }
+
+    .divider::after {
+      content: "◆";
+      color: #a50b0b;
+      font-size: 10px;
+      background: #050505;
+      padding: 0 10px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .question {
+      font-size: clamp(21px, 3vw, 31px);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 36px;
+    }
+
+    .coming {
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ddd7cf;
+    }
+
+    .athens {
+      font-family: Arial, Helvetica, sans-serif;
+      margin-top: 12px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #8b8580;
+    }
+
+    .bottom {
+      margin-top: 55px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 2;
+      color: #79746f;
+    }
+
+    .bottom a {
+      color: #b7b1aa;
+      text-decoration: none;
+      transition: .25s ease;
+    }
+
+    .bottom a:hover {
+      color: #b50b0b;
+    }
+
+    .bloodline {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 70px;
+      background: linear-gradient(#9d0909, transparent);
+      opacity: .55;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 32px 18px;
+      }
+
+      .logo {
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        letter-spacing: 3px;
+      }
+
+      .coming {
+        letter-spacing: 4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="hero">
+
+    <div class="content">
+
+      <img
+        src="crimebite-logo.png"
+        alt="Crime Bite"
+        class="logo"
+      >
+
+      <div class="eyebrow">MYSTERY DINNER EXPERIENCE</div>
+
+      <h1>
+        Δεν ήρθες μόνο<br>
+        <span class="red">για να φας.</span>
+      </h1>
+
+      <p class="intro">
+        Ένα δείπνο όπου τίποτα δεν είναι ακριβώς αυτό που φαίνεται.
+        Παρατήρησε. Σύνδεσε τα στοιχεία. Μπες μέσα στο μυστήριο.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="question">
+        Πόσο καλά παρατηρείς<br>
+        όταν όλοι γύρω σου έχουν κάτι να κρύψουν;
+      </div>
+
+      <div class="coming">COMING SOON</div>
+      <div class="athens">ATHENS</div>
+
+      <div class="bottom">
+        <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>
+        <br>
+        Dinner. Mystery. Crime.
+      </div>
+
+    </div>
+
+    <div class="bloodline"></div>
+
+  </main>
+
+</body>
+</html>
