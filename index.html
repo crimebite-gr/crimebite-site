@@ -24,7 +24,6 @@
     content="#030303"
   >
 
-
   <style>
 
     * {
@@ -33,142 +32,87 @@
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
       min-height: 100vh;
-
-      background:
-        #020202;
-
-      color:
-        #efeae3;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+      background: #020202;
+      color: #efeae3;
+      font-family: Georgia, "Times New Roman", serif;
       overflow-x: hidden;
     }
 
-
     body::before {
       content: "";
-
       position: fixed;
-
       inset: 0;
-
       background:
-
         radial-gradient(
           circle at 50% 18%,
           rgba(145, 0, 0, 0.15),
           transparent 28%
         ),
-
         radial-gradient(
           circle at 50% 70%,
           rgba(90, 0, 0, 0.08),
           transparent 42%
         ),
-
         linear-gradient(
           180deg,
           #080808 0%,
           #020202 45%,
           #000000 100%
         );
-
       z-index: -3;
     }
 
-
     body::after {
       content: "";
-
       position: fixed;
-
       inset: 0;
-
       background:
         linear-gradient(
           rgba(255,255,255,0.012) 50%,
           rgba(0,0,0,0.02) 50%
         );
-
-      background-size:
-        100% 4px;
-
+      background-size: 100% 4px;
       opacity: 0.25;
-
       pointer-events: none;
-
       z-index: 50;
     }
 
-
-
-    /* =========================
-       HERO
-    ========================== */
-
-
     .hero {
       min-height: 100vh;
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       text-align: center;
-
-      padding:
-        28px 22px 38px;
-
+      padding: 28px 22px 38px;
       position: relative;
-
       overflow: hidden;
     }
 
-
     .hero::before {
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       box-shadow:
         inset 0 0 210px rgba(0,0,0,0.94);
-
       pointer-events: none;
     }
 
-
     .content {
       width: 100%;
-
       max-width: 900px;
-
       position: relative;
-
       z-index: 3;
-
       animation:
         entrance 1.4s ease both;
     }
 
-
     @keyframes entrance {
-
       from {
         opacity: 0;
         transform: translateY(12px);
@@ -178,98 +122,53 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
-
-
-
-    /* =========================
-       LOGO
-    ========================== */
-
 
     .logo-wrap {
       display: flex;
-
       justify-content: center;
-
       margin-bottom: 2px;
     }
 
-
     .logo {
-      width:
-        min(350px, 76vw);
-
+      width: min(350px, 76vw);
       height: auto;
-
       display: block;
-
       filter:
         drop-shadow(
           0 0 22px rgba(130,0,0,0.14)
         );
-
       animation:
-        logoBreath
-        7s
-        ease-in-out
-        infinite;
+        logoBreath 7s ease-in-out infinite;
     }
 
-
     @keyframes logoBreath {
-
       0%,
       100% {
-
         filter:
           drop-shadow(
             0 0 18px rgba(130,0,0,0.10)
           );
-
       }
 
-
       50% {
-
         filter:
           drop-shadow(
             0 0 30px rgba(150,0,0,0.22)
           );
-
       }
-
     }
-
-
-
-    /* =========================
-       TEXT
-    ========================== */
-
 
     .kicker {
       margin-top: 2px;
-
       margin-bottom: 20px;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
-
       letter-spacing: 5px;
-
       text-transform: uppercase;
-
       color: #a20a0a;
-
       font-weight: 700;
     }
-
 
     h1 {
       font-size:
@@ -278,60 +177,34 @@
           6vw,
           62px
         );
-
       font-weight: 400;
-
       line-height: 1.06;
-
       letter-spacing: -1px;
-
       margin-bottom: 18px;
     }
-
 
     h1 span {
       color: #b30b0b;
     }
 
-
     .intro {
       max-width: 670px;
-
-      margin:
-        0 auto;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
       font-size:
         clamp(
           15px,
           1.9vw,
           17px
         );
-
       line-height: 1.75;
-
       color: #a9a29b;
     }
 
-
-
-    /* =========================
-       DIVIDER
-    ========================== */
-
-
     .divider {
       width: 110px;
-
       height: 1px;
-
-      margin:
-        28px auto;
-
+      margin: 28px auto;
       background:
         linear-gradient(
           90deg,
@@ -339,225 +212,118 @@
           #8f0808,
           transparent
         );
-
       position: relative;
     }
 
-
     .divider::after {
       content: "◆";
-
       position: absolute;
-
       left: 50%;
-
       top: 50%;
-
-      transform:
-        translate(-50%, -50%);
-
+      transform: translate(-50%, -50%);
       color: #a80b0b;
-
       background: #020202;
-
-      padding:
-        0 10px;
-
+      padding: 0 10px;
       font-size: 8px;
     }
 
-
-
-    /* =========================
-       TEASER INFO
-    ========================== */
-
-
     .steps {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size:
         clamp(
           12px,
           1.5vw,
           14px
         );
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
-
       color: #d3ccc3;
-
       margin-bottom: 24px;
-
       line-height: 1.8;
     }
 
-
     .date {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 11px;
-
       letter-spacing: 5px;
-
       color: #77716c;
-
       text-transform: uppercase;
-
       margin-bottom: 10px;
     }
 
-
     .coming {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
-
       font-weight: 700;
-
       letter-spacing: 8px;
-
       color: #eee8df;
-
       text-transform: uppercase;
     }
 
-
     .case-line {
       margin-top: 26px;
-
       font-size:
         clamp(
           17px,
           2vw,
           21px
         );
-
       font-style: italic;
-
       color: #aaa39b;
     }
 
-
-
-    /* =========================
-       CONTACT
-    ========================== */
-
-
     .contact {
       margin-top: 34px;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;
-
       letter-spacing: 1px;
     }
 
-
     .contact a {
-
       color: #b7afa8;
-
       text-decoration: none;
-
-      transition:
-        color 0.25s ease;
-
+      transition: color 0.25s ease;
     }
-
 
     .contact a:hover {
       color: #b30b0b;
     }
 
-
     .socials {
       margin-top: 14px;
-
       display: flex;
-
       justify-content: center;
-
       gap: 22px;
-
       flex-wrap: wrap;
     }
 
-
-    .socials a {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    .socials a,
+    .socials span {
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
-
       letter-spacing: 2px;
-
       color: #6f6964;
-
       text-decoration: none;
-
       text-transform: uppercase;
-
-      transition:
-        color 0.25s ease;
+      transition: color 0.25s ease;
     }
-
 
     .socials a:hover {
       color: #b30b0b;
     }
 
-
-
-    /* =========================
-       SCROLL INDICATOR
-    ========================== */
-
-
     .scroll {
       margin-top: 30px;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 8px;
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
-
       color: #4d4844;
-
       animation:
-        scrollPulse
-        2.5s
-        ease-in-out
-        infinite;
+        scrollPulse 2.5s ease-in-out infinite;
     }
 
-
     @keyframes scrollPulse {
-
       0%,
       100% {
         opacity: 0.35;
@@ -566,471 +332,233 @@
       50% {
         opacity: 0.85;
       }
-
     }
 
-
-
-    /* =========================
-       CASE FILES
-    ========================== */
-
-
     .case-files {
-
       position: relative;
-
-      padding:
-        100px 22px 120px;
-
+      padding: 100px 22px 120px;
       background:
-
         radial-gradient(
           circle at 50% 40%,
           rgba(110,0,0,0.10),
           transparent 38%
         ),
-
         #010101;
-
       border-top:
         1px solid rgba(255,255,255,0.035);
-
     }
-
 
     .files-inner {
-
       max-width: 1050px;
-
-      margin:
-        0 auto;
-
+      margin: 0 auto;
       text-align: center;
-
     }
-
 
     .file-label {
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
-
       letter-spacing: 6px;
-
       text-transform: uppercase;
-
       color: #a30a0a;
-
       margin-bottom: 18px;
-
     }
 
-
     .files-title {
-
       font-size:
         clamp(
           32px,
           5vw,
           54px
         );
-
       font-weight: 400;
-
       margin-bottom: 16px;
-
     }
-
 
     .files-subtitle {
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size:
-        15px;
-
-      color:
-        #87817b;
-
-      line-height:
-        1.7;
-
-      margin-bottom:
-        55px;
-
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      color: #87817b;
+      line-height: 1.7;
+      margin-bottom: 55px;
     }
-
-
-
-    /* =========================
-       VIDEO GRID
-    ========================== */
-
 
     .video-grid {
-
       display: grid;
-
       grid-template-columns:
         repeat(2, minmax(0, 1fr));
-
       gap: 42px;
-
       align-items: start;
-
       justify-content: center;
-
     }
-
 
     .video-card {
-
       position: relative;
-
       max-width: 390px;
-
       width: 100%;
-
-      margin:
-        0 auto;
-
+      margin: 0 auto;
     }
 
-
     .video-frame {
-
       position: relative;
-
       padding: 6px;
-
       background:
-
         linear-gradient(
           145deg,
           rgba(130,0,0,0.45),
           rgba(255,255,255,0.04),
           rgba(90,0,0,0.15)
         );
-
       border-radius: 4px;
-
       box-shadow:
-
         0 30px 80px rgba(0,0,0,0.8),
-
         0 0 35px rgba(110,0,0,0.08);
-
     }
-
 
     .video-frame::before {
-
       content: "";
-
       position: absolute;
-
       inset: -1px;
-
       border:
         1px solid rgba(150,0,0,0.20);
-
       pointer-events: none;
-
     }
-
 
     video {
-
       width: 100%;
-
       aspect-ratio: 9 / 16;
-
       display: block;
-
       object-fit: cover;
-
       background: #000;
-
     }
-
 
     .video-number {
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 9px;
-
       letter-spacing: 5px;
-
       text-transform: uppercase;
-
       color: #6d6661;
-
       margin-top: 20px;
-
     }
-
 
     .video-title {
-
       margin-top: 8px;
-
       font-size: 22px;
-
       font-weight: 400;
-
       color: #d7d0c8;
-
     }
-
-
-
-    /* =========================
-       SECTION END
-    ========================== */
-
 
     .classified {
-
       margin-top: 85px;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 9px;
-
       letter-spacing: 6px;
-
       text-transform: uppercase;
-
       color: #514b47;
-
     }
-
 
     .brand-line {
-
       margin-top: 32px;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 9px;
-
       letter-spacing: 6px;
-
       text-transform: uppercase;
-
       color: #393532;
-
     }
 
-
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-
-    @media
-    (max-width: 700px) {
-
+    @media (max-width: 700px) {
 
       .hero {
-
         min-height: auto;
-
         padding:
           24px
           16px
           55px;
-
       }
 
-
       .logo {
-
         width:
           min(
             320px,
             84vw
           );
-
       }
-
 
       .kicker {
-
-        letter-spacing:
-          3px;
-
-        margin-bottom:
-          18px;
-
+        letter-spacing: 3px;
+        margin-bottom: 18px;
       }
-
 
       h1 {
-
-        font-size:
-          36px;
-
-        margin-bottom:
-          16px;
-
+        font-size: 36px;
+        margin-bottom: 16px;
       }
-
 
       .intro {
-
-        font-size:
-          15px;
-
-        line-height:
-          1.7;
-
+        font-size: 15px;
+        line-height: 1.7;
       }
-
 
       .divider {
-
-        margin:
-          24px auto;
-
+        margin: 24px auto;
       }
-
 
       .steps {
-
-        letter-spacing:
-          2px;
-
-        font-size:
-          11px;
-
-        margin-bottom:
-          20px;
-
+        letter-spacing: 2px;
+        font-size: 11px;
+        margin-bottom: 20px;
       }
-
 
       .date {
-
-        letter-spacing:
-          3px;
-
+        letter-spacing: 3px;
       }
-
 
       .coming {
-
-        letter-spacing:
-          5px;
-
+        letter-spacing: 5px;
       }
-
 
       .case-line {
-
-        margin-top:
-          22px;
-
+        margin-top: 22px;
       }
-
 
       .socials {
-
-        gap:
-          14px;
-
+        gap: 14px;
       }
 
-
       .case-files {
-
         padding:
           75px
           18px
           85px;
-
       }
-
 
       .files-subtitle {
-
-        margin-bottom:
-          38px;
-
+        margin-bottom: 38px;
       }
-
 
       .video-grid {
-
-        grid-template-columns:
-          1fr;
-
-        gap:
-          55px;
-
+        grid-template-columns: 1fr;
+        gap: 55px;
       }
-
 
       .video-card {
-
-        max-width:
-          330px;
-
+        max-width: 330px;
       }
-
 
       .classified {
-
-        margin-top:
-          65px;
-
-        letter-spacing:
-          4px;
-
+        margin-top: 65px;
+        letter-spacing: 4px;
       }
-
     }
-
 
   </style>
 
 </head>
 
-
-
 <body>
-
-
-
-  <!-- =========================
-       HERO
-  ========================== -->
-
 
   <main class="hero">
 
-
     <section class="content">
-
 
       <div class="logo-wrap">
 
@@ -1042,200 +570,109 @@
 
       </div>
 
-
-
       <div class="kicker">
-
         Mystery Dinner Experience
-
       </div>
 
-
-
       <h1>
-
         Κάτι συμβαίνει
-
         <br>
-
-        <span>
-          στην Αθήνα.
-        </span>
-
+        <span>στην Αθήνα.</span>
       </h1>
 
-
-
       <p class="intro">
-
         Ένα δείπνο όπου δεν είσαι απλώς καλεσμένος.
-
         <br>
-
         Παρατήρησε.
         Σύνδεσε τα στοιχεία.
         Μπες μέσα στο μυστήριο.
-
       </p>
-
-
 
       <div class="divider"></div>
 
-
-
       <div class="steps">
-
-        Παρατήρησε
-        •
-        Σύνδεσε
-        •
-        Ανακάλυψε
-
+        Παρατήρησε • Σύνδεσε • Ανακάλυψε
       </div>
-
-
 
       <div class="date">
-
         Athens • November 2026
-
       </div>
-
-
 
       <div class="coming">
-
         Coming Soon
-
       </div>
-
-
 
       <div class="case-line">
-
         Η υπόθεση δεν έχει ανοίξει ακόμα.
-
       </div>
-
-
 
       <div class="contact">
 
-        <a
-          href="mailto:info@crimebite.gr"
-        >
-
+        <a href="mailto:info@crimebite.gr">
           info@crimebite.gr
-
         </a>
 
       </div>
 
-
-
       <div class="socials">
-
 
         <a
           href="https://www.instagram.com/crimebite.gr/"
           target="_blank"
           rel="noopener noreferrer"
         >
-
           Instagram
-
         </a>
-
 
         <a
           href="https://www.tiktok.com/@crimebite.gr"
           target="_blank"
           rel="noopener noreferrer"
         >
-
           TikTok
-
         </a>
 
-
         <span>
-
           Facebook
-
         </span>
 
-
       </div>
-
-
 
       <div class="scroll">
-
         ↓ Case Files
-
       </div>
 
-
     </section>
-
 
   </main>
 
 
-
-  <!-- =========================
-       VIDEO CASE FILES
-  ========================== -->
-
-
   <section class="case-files">
-
 
     <div class="files-inner">
 
-
-
       <div class="file-label">
-
         Crime Bite Archives
-
       </div>
 
-
-
       <h2 class="files-title">
-
         Case Files
-
       </h2>
 
-
-
       <p class="files-subtitle">
-
         Κάποια στοιχεία δεν εξηγούνται.
-
         <br>
-
         Απλώς παρατηρούνται.
-
       </p>
-
-
 
       <div class="video-grid">
 
 
-
-        <!-- TEASER 01 -->
-
+        <!-- FILE 001 -->
 
         <article class="video-card">
 
-
           <div class="video-frame">
-
 
             <video
               controls
@@ -1243,116 +680,76 @@
               preload="metadata"
             >
 
-
               <source
-                src="Murder_Mystery_Dinner_Teaser.mp4"
+                src="Crime_Bite_Cinematic_Teaser.mp4"
                 type="video/mp4"
               >
-
 
               Το πρόγραμμα περιήγησής σας
               δεν υποστηρίζει video.
 
-
             </video>
 
-
           </div>
-
 
           <div class="video-number">
-
             File 001
-
           </div>
-
 
           <div class="video-title">
-
             The Invitation
-
           </div>
-
 
         </article>
 
 
-
-
-        <!-- TEASER 02 -->
-
+        <!-- FILE 002 -->
 
         <article class="video-card">
 
-
           <div class="video-frame">
-
 
             <video
               controls
               playsinline
               preload="metadata"
             >
-
 
               <source
                 src="Crime_Bite_Teaser_2_-_Final_Edit.mp4"
                 type="video/mp4"
               >
 
-
               Το πρόγραμμα περιήγησής σας
               δεν υποστηρίζει video.
 
-
             </video>
 
-
           </div>
-
 
           <div class="video-number">
-
             File 002
-
           </div>
-
 
           <div class="video-title">
-
             Look Closer
-
           </div>
-
 
         </article>
 
-
       </div>
-
-
 
       <div class="classified">
-
         More evidence will be released soon.
-
       </div>
-
-
 
       <div class="brand-line">
-
         Dinner • Mystery • Crime
-
       </div>
-
 
     </div>
 
-
   </section>
-
-
 
 </body>
 
