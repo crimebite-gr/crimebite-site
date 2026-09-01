@@ -16,7 +16,7 @@
 
   <meta
     name="description"
-    content="Crime Bite — Mystery Dinner Experience στην Αθήνα. Dinner. Mystery. Crime. Coming November 2026."
+    content="Crime Bite — Mystery Dinner Experience στην Αθήνα. Ένα διαδραστικό δείπνο μυστηρίου όπου παρατηρείς, συνδέεις στοιχεία και ανακαλύπτεις τον ένοχο. Νοέμβριος 2026."
   >
 
   <meta
@@ -334,6 +334,248 @@
       }
     }
 
+    .experience {
+      position: relative;
+      padding: 110px 22px 115px;
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(125,0,0,0.12),
+          transparent 34%
+        ),
+        linear-gradient(
+          180deg,
+          #020202 0%,
+          #050101 48%,
+          #010101 100%
+        );
+      border-top: 1px solid rgba(255,255,255,0.035);
+      border-bottom: 1px solid rgba(255,255,255,0.035);
+      overflow: hidden;
+    }
+
+    .experience::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      left: 50%;
+      top: 48%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(125,0,0,0.08);
+      border-radius: 50%;
+      box-shadow:
+        0 0 90px rgba(120,0,0,0.05),
+        inset 0 0 90px rgba(120,0,0,0.03);
+      pointer-events: none;
+    }
+
+    .experience-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .experience-label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #a30a0a;
+      margin-bottom: 18px;
+    }
+
+    .experience-title {
+      font-size:
+        clamp(
+          34px,
+          5.4vw,
+          58px
+        );
+      font-weight: 400;
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+
+    .experience-title span {
+      color: #b30b0b;
+    }
+
+    .experience-lead {
+      max-width: 690px;
+      margin: 0 auto 34px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:
+        clamp(
+          15px,
+          1.9vw,
+          17px
+        );
+      line-height: 1.8;
+      color: #aaa39c;
+    }
+
+    .experience-flow {
+      max-width: 690px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .experience-step {
+      min-height: 112px;
+      padding: 22px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.055);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.025),
+          rgba(110,0,0,0.045)
+        );
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #c8c0b8;
+    }
+
+    .experience-question {
+      margin-top: 44px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #6f6964;
+    }
+
+    .three-questions {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:
+        clamp(
+          24px,
+          4vw,
+          38px
+        );
+      font-weight: 700;
+      letter-spacing: 5px;
+      color: #eee8df;
+    }
+
+    .three-questions span {
+      color: #a60a0a;
+      font-size: 15px;
+      letter-spacing: 0;
+    }
+
+    .experience-challenge {
+      margin-top: 26px;
+      font-size:
+        clamp(
+          21px,
+          3vw,
+          30px
+        );
+      font-style: italic;
+      color: #cfc7bf;
+    }
+
+    .experience-divider {
+      width: 150px;
+      height: 1px;
+      margin: 42px auto 34px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(160,0,0,0.9),
+          transparent
+        );
+    }
+
+    .release-box {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 28px 24px 30px;
+      border: 1px solid rgba(145,0,0,0.22);
+      background: rgba(0,0,0,0.28);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+    }
+
+    .release-brand {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #8c8580;
+    }
+
+    .release-date {
+      margin-top: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #d8d1c9;
+    }
+
+    .release-status {
+      margin-top: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #b30b0b;
+    }
+
+    .notify-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+      padding: 14px 22px;
+      border: 1px solid rgba(179,11,11,0.72);
+      color: #f0ebe5;
+      background: rgba(120,0,0,0.09);
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .notify-btn:hover {
+      background: rgba(140,0,0,0.22);
+      border-color: #b30b0b;
+      transform: translateY(-1px);
+    }
+
+    .notify-note {
+      max-width: 460px;
+      margin: 12px auto 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      line-height: 1.6;
+      color: #625d58;
+    }
+
     .case-files {
       position: relative;
       padding: 100px 22px 120px;
@@ -524,6 +766,56 @@
         gap: 14px;
       }
 
+      .experience {
+        padding:
+          78px
+          16px
+          82px;
+      }
+
+      .experience::before {
+        width: 360px;
+        height: 360px;
+      }
+
+      .experience-label {
+        letter-spacing: 4px;
+      }
+
+      .experience-title {
+        font-size: 36px;
+      }
+
+      .experience-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-step {
+        min-height: auto;
+        padding: 18px 16px;
+      }
+
+      .three-questions {
+        gap: 10px;
+        letter-spacing: 3px;
+      }
+
+      .release-box {
+        padding: 24px 18px 26px;
+      }
+
+      .release-brand,
+      .release-date,
+      .release-status {
+        letter-spacing: 3px;
+      }
+
+      .notify-btn {
+        width: 100%;
+        max-width: 360px;
+        letter-spacing: 2px;
+      }
+
       .case-files {
         padding:
           75px
@@ -639,13 +931,104 @@
       </div>
 
       <div class="scroll">
-        ↓ Case Files
+        ↓ Discover The Experience
       </div>
 
     </section>
 
   </main>
 
+  <section class="experience" aria-labelledby="experience-title">
+
+    <div class="experience-inner">
+
+      <div class="experience-label">
+        The Experience
+      </div>
+
+      <h2 class="experience-title" id="experience-title">
+        Το δείπνο είναι
+        <br>
+        <span>μόνο η αρχή.</span>
+      </h2>
+
+      <p class="experience-lead">
+        Ένας φόνος έχει συμβεί.
+        <br>
+        Από τη στιγμή που θα καθίσεις στο τραπέζι,
+        δεν παρακολουθείς απλώς την ιστορία.
+        Μπαίνεις μέσα σε αυτή.
+      </p>
+
+      <div class="experience-flow">
+
+        <div class="experience-step">
+          Στο τραπέζι σου θα φτάσουν στοιχεία.
+        </div>
+
+        <div class="experience-step">
+          Θα ακούσεις καταθέσεις και θα αναζητήσεις αντιφάσεις.
+        </div>
+
+        <div class="experience-step">
+          Θα συνδέσεις ενδείξεις και θα ξεχωρίσεις ό,τι έχει σημασία.
+        </div>
+
+        <div class="experience-step">
+          Θα συνεργαστείς με την ομάδα σου πριν τελειώσει ο χρόνος.
+        </div>
+
+      </div>
+
+      <div class="experience-question">
+        Στο τέλος θα πρέπει να απαντήσεις
+      </div>
+
+      <div class="three-questions" aria-label="Ποιος, Πώς, Γιατί">
+        ΠΟΙΟΣ;
+        <span>◆</span>
+        ΠΩΣ;
+        <span>◆</span>
+        ΓΙΑΤΙ;
+      </div>
+
+      <div class="experience-challenge">
+        Εσύ θα βρεις τον ένοχο;
+      </div>
+
+      <div class="experience-divider"></div>
+
+      <div class="release-box">
+
+        <div class="release-brand">
+          Crime Bite — Mystery Dinner Experience
+        </div>
+
+        <div class="release-date">
+          Αθήνα • Νοέμβριος 2026
+        </div>
+
+        <div class="release-status">
+          Η προπώληση ανοίγει σύντομα
+        </div>
+
+        <a
+          class="notify-btn"
+          href="mailto:info@crimebite.gr?subject=Θέλω%20να%20μάθω%20πρώτος%20για%20το%20Crime%20Bite"
+        >
+          Θέλω να μάθω πρώτος
+        </a>
+
+        <div class="notify-note">
+          Πάτησε για να μας στείλεις ενδιαφέρον
+          και να ενημερωθείς όταν ανοίξει η προπώληση.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 
   <section class="case-files">
 
@@ -666,7 +1049,6 @@
       </p>
 
       <div class="video-grid">
-
 
         <!-- FILE 001 -->
 
@@ -701,7 +1083,6 @@
           </div>
 
         </article>
-
 
         <!-- FILE 002 -->
 
