@@ -54,13 +54,14 @@
     .cta-note{margin-top:14px;color:#77716c;font:11px/1.7 Arial,sans-serif}
     footer{text-align:center;padding:42px 22px 55px;border-top:1px solid rgba(255,255,255,.04);color:#706a65;font:9px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase}
     footer a{color:#c9b18a;text-decoration:none}
-    @media(max-width:720px){.site-nav{position:absolute;padding:14px 16px}.nav-links a{display:none}.nav-links .active{display:inline-block;font-size:8px}.hero{min-height:auto;padding:120px 18px 78px}.section{padding:76px 16px}.cards,.occasion-grid{grid-template-columns:1fr}.card{padding:34px 25px;min-height:auto}.step{grid-template-columns:52px 1fr}.step-copy{padding:18px 16px}.cta-panel{padding:54px 22px}.primary-btn{width:100%;max-width:390px;letter-spacing:2px}}
+    .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:25px 0 5px}.contact-links a{min-width:125px;padding:12px 17px;border:1px solid rgba(201,177,138,.23);color:#c9b18a;text-decoration:none;font:9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;transition:.25s ease}.contact-links a:hover,.contact-links a:focus-visible{color:#fff;border-color:#b30b0b;background:rgba(179,11,11,.08)}
+    @media(max-width:720px){.site-nav{position:absolute;padding:14px 16px}.nav-links a{display:none}.nav-links .active,.nav-links .nav-contact{display:inline-block;font-size:8px}.hero{min-height:auto;padding:120px 18px 78px}.section{padding:76px 16px}.cards,.occasion-grid{grid-template-columns:1fr}.card{padding:34px 25px;min-height:auto}.step{grid-template-columns:52px 1fr}.step-copy{padding:18px 16px}.cta-panel{padding:54px 22px}.primary-btn{width:100%;max-width:390px;letter-spacing:2px}}
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Κύρια πλοήγηση">
     <a class="nav-brand" href="index.html">Crime Bite</a>
-    <div class="nav-links"><a href="index.html">Αρχική</a><a class="active" href="private-events.html">Ιδιωτικές βραδιές</a><a href="mailto:info@crimebite.gr?subject=Private%20Crime%20Bite%20Experience">Επικοινωνία</a></div>
+    <div class="nav-links"><a href="index.html">Αρχική</a><a class="active" href="private-events.html">Ιδιωτικές βραδιές</a><a class="nav-contact" href="#contact">Επικοινωνία</a></div>
   </nav>
 
   <header class="hero">
@@ -125,6 +126,15 @@
     </section>
   </main>
 
-  <footer><a href="mailto:info@crimebite.gr">info@crimebite.gr</a><br><br>Dinner · Mystery · Crime</footer>
+  <footer id="contact">
+    Επικοινωνία<br><br>
+    <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>
+    <div class="contact-links">
+      <a href="https://www.instagram.com/crimebite.gr/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@crimebite.gr" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.facebook.com/profile.php?id=61593176950793" target="_blank" rel="noopener noreferrer">Facebook</a>
+    </div>
+    <br>Dinner · Mystery · Crime
+  </footer>
 </body>
 </html>
