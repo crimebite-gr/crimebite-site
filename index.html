@@ -83,6 +83,46 @@
       z-index: 50;
     }
 
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 15px clamp(18px, 4vw, 58px);
+      border-bottom: 1px solid rgba(255,255,255,.055);
+      background: rgba(2,2,2,.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-brand {
+      color: #f5eee7;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links { display: flex; align-items: center; justify-content: flex-end; gap: clamp(14px, 2.2vw, 34px); }
+    .nav-links a {
+      color: #aaa39c;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color .25s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: #fff8f0; }
+    .nav-links .nav-highlight { color: #c9b18a; }
+
     .hero {
       min-height: 100vh;
       display: flex;
@@ -766,7 +806,8 @@
     .info-section,
     .menu-section,
     .faq-section,
-    .social-section {
+    .social-section,
+    .private-preview-section {
       position: relative;
       padding: 96px 22px;
       border-top: 1px solid rgba(255,255,255,.035);
@@ -775,7 +816,8 @@
 
     .countdown-section,
     .menu-section,
-    .social-section {
+    .social-section,
+    .private-preview-section {
       background: radial-gradient(circle at 50% 30%, rgba(120,0,0,.13), transparent 40%), #020202;
     }
 
@@ -809,6 +851,35 @@
       line-height: 1.85;
       color: #aaa39c;
     }
+
+    .private-preview {
+      position: relative;
+      max-width: 900px;
+      margin: 44px auto 0;
+      padding: clamp(34px, 6vw, 70px);
+      overflow: hidden;
+      border: 1px solid rgba(201,177,138,.26);
+      background:
+        linear-gradient(135deg, rgba(112,0,0,.18), transparent 48%),
+        linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+      box-shadow: 0 28px 90px rgba(0,0,0,.48);
+    }
+
+    .private-preview::before,
+    .private-preview::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      pointer-events: none;
+    }
+    .private-preview::before { top: 16px; left: 16px; border-top: 1px solid rgba(179,11,11,.62); border-left: 1px solid rgba(179,11,11,.62); }
+    .private-preview::after { right: 16px; bottom: 16px; border-right: 1px solid rgba(179,11,11,.62); border-bottom: 1px solid rgba(179,11,11,.62); }
+
+    .private-preview h3 { font-size: clamp(27px, 4.5vw, 45px); font-weight: 400; line-height: 1.15; }
+    .private-preview p { max-width: 680px; margin: 20px auto 0; font-family: Arial, Helvetica, sans-serif; color: #aaa39c; font-size: 15px; line-height: 1.85; }
+    .private-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .private-tags span { padding: 9px 12px; border: 1px solid rgba(255,255,255,.07); color: #c9b18a; font-family: Arial, Helvetica, sans-serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; }
 
     .countdown {
       max-width: 720px;
@@ -970,6 +1041,10 @@
     .footer-contact a { color: #aaa39c; text-decoration: none; }
 
     @media (max-width: 700px) {
+      .site-nav { position: absolute; padding: 14px 16px; }
+      .nav-links { gap: 13px; }
+      .nav-links a { display: none; }
+      .nav-links .nav-highlight { display: inline-block; font-size: 8px; }
 
       .hero {
         min-height: auto;
@@ -1105,7 +1180,8 @@
 
       .primary-btn { width: 100%; max-width: 370px; }
       .countdown { grid-template-columns: repeat(2, 1fr); }
-      .countdown-section, .info-section, .menu-section, .faq-section, .social-section { padding: 72px 16px; }
+      .countdown-section, .info-section, .menu-section, .faq-section, .social-section, .private-preview-section { padding: 72px 16px; }
+      .private-preview { padding: 46px 22px; }
       .timeline-item { grid-template-columns: 52px 1fr; }
       .timeline-copy { padding: 18px 16px; }
       .facts-grid, .menu-grid { grid-template-columns: 1fr; }
@@ -1117,6 +1193,15 @@
 </head>
 
 <body>
+  <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+    <a class="nav-brand" href="index.html">Crime Bite</a>
+    <div class="nav-links">
+      <a href="#experience-title">Η εμπειρία</a>
+      <a class="nav-highlight" href="private-events.html">Ιδιωτικές βραδιές</a>
+      <a href="#faq-title">FAQ</a>
+      <a href="#priority-list">Προτεραιότητα</a>
+    </div>
+  </nav>
   <main class="hero">
     <section class="content">
       <div class="logo-wrap"><img src="crimebite-logo.png" alt="Crime Bite — Dinner. Mystery. Crime." class="logo"></div>
@@ -1176,6 +1261,20 @@
       </div>
       <div class="feature-box"><h3>Μπορώ να έρθω μόνος;</h3><p>Φυσικά. Μπορείς να έρθεις μόνος, με έναν φίλο ή με ολόκληρη παρέα. Αν έρθεις μόνος ή με μικρότερη παρέα, θα ενταχθείς σε μια ομάδα και θα γνωρίσεις τους υπόλοιπους ερευνητές στο τραπέζι σου.</p></div>
       <div class="feature-box"><h3>Δεν χρειάζεται να είσαι ηθοποιός</h3><p>Δεν απαιτούνται θεατρικές ικανότητες, ειδικές γνώσεις ή προηγούμενη εμπειρία. Έρχεσαι ως καλεσμένος και συμμετέχεις ως ερευνητής. Το πόσο ενεργά θα συμμετάσχεις εξαρτάται αποκλειστικά από εσένα.</p></div>
+    </div>
+  </section>
+
+  <section class="private-preview-section" aria-labelledby="private-preview-title">
+    <div class="section-inner">
+      <div class="section-label">Private &amp; Corporate Experiences</div>
+      <div class="private-preview">
+        <h3 id="private-preview-title">Μια υπόθεση αποκλειστικά<br>για τους καλεσμένους σας.</h3>
+        <p>Ιδιωτικές βραδιές, ξεχωριστές περιστάσεις και εταιρικές εκδηλώσεις μεταμορφώνονται σε μια ολοκληρωμένη εμπειρία δείπνου και μυστηρίου, σχεδιασμένη για τη δική σας ομάδα.</p>
+        <div class="private-tags" aria-label="Ενδεικτικές ιδιωτικές εκδηλώσεις">
+          <span>Private Dinners</span><span>Celebrations</span><span>Team Building</span><span>Corporate Events</span>
+        </div>
+        <a class="primary-btn" href="private-events.html">Ανακάλυψε τις ιδιωτικές βραδιές</a>
+      </div>
     </div>
   </section>
 

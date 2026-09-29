@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ιδιωτικές & Εταιρικές Βραδιές | Crime Bite</title>
+  <meta name="description" content="Ιδιωτικές και εταιρικές εμπειρίες Crime Bite στην Αθήνα. Ένα premium δείπνο μυστηρίου αποκλειστικά για τους καλεσμένους σας.">
+  <meta name="theme-color" content="#030303">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;background:#020202;color:#efeae3;font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% 15%,rgba(135,0,0,.18),transparent 31%),radial-gradient(circle at 12% 68%,rgba(92,0,0,.08),transparent 34%),linear-gradient(180deg,#090909,#010101 52%,#000)}
+    body:after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.22;background:linear-gradient(rgba(255,255,255,.012) 50%,rgba(0,0,0,.02) 50%);background-size:100% 4px}
+    a{color:inherit}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:15px clamp(18px,4vw,58px);border-bottom:1px solid rgba(255,255,255,.055);background:rgba(2,2,2,.84);backdrop-filter:blur(16px)}
+    .nav-brand{text-decoration:none;font:700 11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;white-space:nowrap}
+    .nav-links{display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)}
+    .nav-links a{text-decoration:none;color:#aaa39c;font:9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;transition:color .25s ease}
+    .nav-links a:hover,.nav-links a:focus-visible,.nav-links .active{color:#c9b18a}
+    .hero{min-height:92vh;display:grid;place-items:center;text-align:center;padding:130px 22px 80px;position:relative}
+    .hero-inner{width:min(980px,100%);position:relative;z-index:2;animation:enter 1.1s ease both}
+    @keyframes enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    .logo{width:min(260px,66vw);height:auto;filter:drop-shadow(0 0 25px rgba(135,0,0,.18))}
+    .eyebrow,.section-label{margin:18px 0;color:#c9b18a;font:700 9px Arial,sans-serif;letter-spacing:5px;text-transform:uppercase}
+    h1{font-size:clamp(40px,7vw,78px);font-weight:400;line-height:1.04;margin:24px auto 22px}
+    h1 span,.section-title span{color:#a90909}
+    .hero-copy{max-width:760px;margin:auto;color:#aaa39c;font:15px/1.9 Arial,sans-serif}
+    .hero-rule{width:165px;height:1px;margin:34px auto;background:linear-gradient(90deg,transparent,#b30b0b,transparent)}
+    .primary-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:28px;padding:17px 27px;border:1px solid rgba(201,177,138,.72);background:linear-gradient(145deg,rgba(120,0,0,.4),rgba(45,0,0,.26));color:#fff8f0;text-decoration:none;font:700 10px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;box-shadow:0 16px 52px rgba(120,0,0,.2);transition:.25s ease}
+    .primary-btn:hover{transform:translateY(-2px);background:rgba(135,0,0,.42);box-shadow:0 20px 60px rgba(140,0,0,.28)}
+    .section{padding:100px 22px;border-top:1px solid rgba(255,255,255,.04)}
+    .section.alt{background:radial-gradient(circle at 50% 25%,rgba(115,0,0,.12),transparent 41%),#020202}
+    .inner{max-width:1040px;margin:auto;text-align:center}
+    .section-title{font-size:clamp(31px,5vw,54px);font-weight:400;line-height:1.12;margin-bottom:20px}
+    .lead{max-width:780px;margin:0 auto 42px;color:#aaa39c;font:15px/1.85 Arial,sans-serif}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{position:relative;text-align:left;padding:42px 36px;border:1px solid rgba(201,177,138,.18);background:linear-gradient(145deg,rgba(255,255,255,.032),rgba(100,0,0,.045));overflow:hidden;min-height:315px}
+    .card:before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#8f0808,transparent)}
+    .card-number{color:#8f0808;font:700 11px Arial,sans-serif;letter-spacing:3px}
+    .card h2{margin:28px 0 18px;font-size:30px;font-weight:400}
+    .card p{color:#9f9892;font:14px/1.8 Arial,sans-serif}
+    .occasion-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:42px}
+    .occasion{padding:25px 14px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.018);color:#d7d0c8;font-size:17px}
+    .occasion small{display:block;margin-bottom:11px;color:#c9b18a;font:8px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+    .steps{max-width:860px;margin:42px auto 0;display:grid;gap:12px}
+    .step{display:grid;grid-template-columns:70px 1fr;text-align:left;border:1px solid rgba(255,255,255,.055);background:rgba(255,255,255,.018)}
+    .step-no{display:grid;place-items:center;border-right:1px solid rgba(179,11,11,.22);color:#b30b0b;font:700 17px Arial,sans-serif}
+    .step-copy{padding:21px 24px}
+    .step-copy h3{font-size:19px;font-weight:400;margin-bottom:7px}
+    .step-copy p{color:#99928c;font:13px/1.65 Arial,sans-serif}
+    .cta-panel{position:relative;max-width:900px;margin:auto;padding:65px clamp(24px,6vw,72px);text-align:center;border:1px solid rgba(201,177,138,.25);background:linear-gradient(135deg,rgba(110,0,0,.19),transparent 52%),rgba(255,255,255,.02);box-shadow:0 30px 100px rgba(0,0,0,.5)}
+    .cta-panel:before,.cta-panel:after{content:"";position:absolute;width:95px;height:95px}.cta-panel:before{left:16px;top:16px;border-left:1px solid #830707;border-top:1px solid #830707}.cta-panel:after{right:16px;bottom:16px;border-right:1px solid #830707;border-bottom:1px solid #830707}
+    .cta-note{margin-top:14px;color:#77716c;font:11px/1.7 Arial,sans-serif}
+    footer{text-align:center;padding:42px 22px 55px;border-top:1px solid rgba(255,255,255,.04);color:#706a65;font:9px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase}
+    footer a{color:#c9b18a;text-decoration:none}
+    @media(max-width:720px){.site-nav{position:absolute;padding:14px 16px}.nav-links a{display:none}.nav-links .active{display:inline-block;font-size:8px}.hero{min-height:auto;padding:120px 18px 78px}.section{padding:76px 16px}.cards,.occasion-grid{grid-template-columns:1fr}.card{padding:34px 25px;min-height:auto}.step{grid-template-columns:52px 1fr}.step-copy{padding:18px 16px}.cta-panel{padding:54px 22px}.primary-btn{width:100%;max-width:390px;letter-spacing:2px}}
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+    <a class="nav-brand" href="index.html">Crime Bite</a>
+    <div class="nav-links"><a href="index.html">Αρχική</a><a class="active" href="private-events.html">Ιδιωτικές βραδιές</a><a href="mailto:info@crimebite.gr?subject=Private%20Crime%20Bite%20Experience">Επικοινωνία</a></div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <a href="index.html"><img class="logo" src="crimebite-logo.png" alt="Crime Bite — Dinner. Mystery. Crime."></a>
+      <div class="eyebrow">Private &amp; Corporate Experiences</div>
+      <h1>Μια υπόθεση αποκλειστικά<br><span>για εσάς.</span></h1>
+      <p class="hero-copy">Το Crime Bite μεταμορφώνεται σε μια ιδιωτική εμπειρία δείπνου και μυστηρίου για την παρέα, την εταιρεία ή τους καλεσμένους σας. Μια βραδιά με ατμόσφαιρα, συνεργασία και ανατροπές — σχεδιασμένη γύρω από τη δική σας περίσταση.</p>
+      <div class="hero-rule"></div>
+      <a class="primary-btn" href="#request">Ζήτησε μια ιδιωτική βραδιά</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section alt" aria-labelledby="formats-title">
+      <div class="inner">
+        <div class="section-label">Two Ways Into The Mystery</div>
+        <h2 class="section-title" id="formats-title">Η δική σας βραδιά.<br><span>Η δική σας υπόθεση.</span></h2>
+        <p class="lead">Είτε πρόκειται για μια προσωπική γιορτή είτε για μια εταιρική συνάντηση, οι καλεσμένοι δεν παρακολουθούν απλώς την ιστορία. Κάθονται στο τραπέζι, συνεργάζονται και μπαίνουν μέσα στο μυστήριο.</p>
+        <div class="cards">
+          <article class="card"><div class="card-number">01 · PRIVATE</div><h2>Ιδιωτικές βραδιές</h2><p>Για γενέθλια, επετείους, bachelor parties, οικογενειακές συναντήσεις ή μια διαφορετική έξοδο με φίλους. Μια εμπειρία αποκλειστικά για τους δικούς σας καλεσμένους.</p></article>
+          <article class="card"><div class="card-number">02 · CORPORATE</div><h2>Εταιρικές εκδηλώσεις</h2><p>Μια premium πρόταση για team building, εταιρικές συναντήσεις, επιβράβευση συνεργατών και φιλοξενία πελατών — με επίκεντρο την επικοινωνία και τη συνεργασία.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="occasions-title">
+      <div class="inner">
+        <div class="section-label">Designed Around Your Guests</div>
+        <h2 class="section-title" id="occasions-title">Περισσότερο από μια εκδήλωση.</h2>
+        <p class="lead">Μια κοινή ανάμνηση που χτίζεται γύρω από το τραπέζι, χωρίς να απαιτούνται θεατρικές ικανότητες, ειδικές γνώσεις ή προηγούμενη εμπειρία.</p>
+        <div class="occasion-grid">
+          <div class="occasion"><small>Celebrate</small>Γενέθλια</div>
+          <div class="occasion"><small>Together</small>Επέτειοι</div>
+          <div class="occasion"><small>Private</small>Bachelor Parties</div>
+          <div class="occasion"><small>Corporate</small>Team Building</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" aria-labelledby="process-title">
+      <div class="inner">
+        <div class="section-label">The Private Case</div>
+        <h2 class="section-title" id="process-title">Πώς οργανώνεται</h2>
+        <div class="steps">
+          <article class="step"><div class="step-no">01</div><div class="step-copy"><h3>Μοιράζεστε μαζί μας την περίσταση</h3><p>Μας ενημερώνετε για την επιθυμητή ημερομηνία, τον αριθμό των καλεσμένων και το είδος της εκδήλωσης.</p></div></article>
+          <article class="step"><div class="step-no">02</div><div class="step-copy"><h3>Διαμορφώνουμε την πρόταση</h3><p>Συντονίζουμε μαζί σας τη διαθεσιμότητα και τις λεπτομέρειες της ιδιωτικής εμπειρίας.</p></div></article>
+          <article class="step"><div class="step-no">03</div><div class="step-copy"><h3>Οι καλεσμένοι παίρνουν θέση</h3><p>Το δείπνο ξεκινά και η ομάδα σας μπαίνει σε μια βραδιά έρευνας, συνεργασίας και τελικής αποκάλυψης.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="request" aria-labelledby="request-title">
+      <div class="cta-panel">
+        <div class="section-label">Request A Private Experience</div>
+        <h2 class="section-title" id="request-title">Ας ανοίξουμε<br><span>τη δική σας υπόθεση.</span></h2>
+        <p class="lead">Στείλτε μας την περίσταση, την επιθυμητή ημερομηνία και τον εκτιμώμενο αριθμό καλεσμένων. Θα επικοινωνήσουμε μαζί σας για τη διαθεσιμότητα και την πρόταση της βραδιάς.</p>
+        <a class="primary-btn" href="mailto:info@crimebite.gr?subject=Private%20Crime%20Bite%20Experience&body=Καλησπέρα%20σας%2C%0A%0AΕνδιαφέρομαι%20για%20τη%20διοργάνωση%20μιας%20ιδιωτικής%20εμπειρίας%20Crime%20Bite.%0A%0AΕίδος%20εκδήλωσης%3A%0AΕπιθυμητή%20ημερομηνία%3A%0AΕκτιμώμενος%20αριθμός%20καλεσμένων%3A%0AΤηλέφωνο%20επικοινωνίας%3A%0A%0AΠρόσθετες%20πληροφορίες%20ή%20επιθυμίες%3A%0A%0AΕυχαριστώ.">Ζήτησε μια ιδιωτική βραδιά</a>
+        <p class="cta-note">Εναλλακτικά, επικοινώνησε μαζί μας στο <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>.</p>
+        <p class="cta-note">Η εκδήλωση ενδιαφέροντος δεν αποτελεί οριστική κράτηση. Η διαθεσιμότητα επιβεβαιώνεται κατόπιν επικοινωνίας.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><a href="mailto:info@crimebite.gr">info@crimebite.gr</a><br><br>Dinner · Mystery · Crime</footer>
+</body>
+</html>
