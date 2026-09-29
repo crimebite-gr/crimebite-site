@@ -52,10 +52,18 @@
     .cta-panel{position:relative;max-width:900px;margin:auto;padding:65px clamp(24px,6vw,72px);text-align:center;border:1px solid rgba(201,177,138,.25);background:linear-gradient(135deg,rgba(110,0,0,.19),transparent 52%),rgba(255,255,255,.02);box-shadow:0 30px 100px rgba(0,0,0,.5)}
     .cta-panel:before,.cta-panel:after{content:"";position:absolute;width:95px;height:95px}.cta-panel:before{left:16px;top:16px;border-left:1px solid #830707;border-top:1px solid #830707}.cta-panel:after{right:16px;bottom:16px;border-right:1px solid #830707;border-bottom:1px solid #830707}
     .cta-note{margin-top:14px;color:#77716c;font:11px/1.7 Arial,sans-serif}
+    .contact-modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:22px;background:rgba(0,0,0,.86);backdrop-filter:blur(10px)}
+    .contact-modal.open{display:grid}
+    .contact-dialog{position:relative;width:min(560px,100%);padding:52px clamp(24px,6vw,55px);text-align:center;border:1px solid rgba(201,177,138,.3);background:radial-gradient(circle at 50% 0,rgba(118,0,0,.2),transparent 48%),#080707;box-shadow:0 30px 100px #000}
+    .contact-dialog:before,.contact-dialog:after{content:"";position:absolute;width:60px;height:60px}.contact-dialog:before{top:14px;left:14px;border-top:1px solid #830707;border-left:1px solid #830707}.contact-dialog:after{right:14px;bottom:14px;border-right:1px solid #830707;border-bottom:1px solid #830707}
+    .modal-close{position:absolute;top:17px;right:20px;z-index:2;border:0;background:transparent;color:#8e8780;font:25px/1 Arial,sans-serif;cursor:pointer}.modal-close:hover{color:#fff}
+    .contact-dialog h2{margin:12px 0 12px;font-size:clamp(29px,5vw,45px);font-weight:400}.contact-dialog>p{color:#99928c;font:13px/1.7 Arial,sans-serif}
+    .mail-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:28px 0 18px}.mail-option{padding:15px 12px;border:1px solid rgba(201,177,138,.25);background:rgba(255,255,255,.02);color:#d9d1c8;text-decoration:none;font:9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.25s ease}.mail-option:hover,.mail-option:focus-visible{border-color:#b30b0b;background:rgba(179,11,11,.1);color:#fff}.mail-option.full{grid-column:1/-1}
+    body.modal-open{overflow:hidden}
     footer{text-align:center;padding:42px 22px 55px;border-top:1px solid rgba(255,255,255,.04);color:#706a65;font:9px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase}
     footer a{color:#c9b18a;text-decoration:none}
     .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:25px 0 5px}.contact-links a{min-width:125px;padding:12px 17px;border:1px solid rgba(201,177,138,.23);color:#c9b18a;text-decoration:none;font:9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;transition:.25s ease}.contact-links a:hover,.contact-links a:focus-visible{color:#fff;border-color:#b30b0b;background:rgba(179,11,11,.08)}
-    @media(max-width:720px){.site-nav{position:absolute;padding:14px 16px}.nav-links a{display:none}.nav-links .active,.nav-links .nav-contact{display:inline-block;font-size:8px}.hero{min-height:auto;padding:120px 18px 78px}.section{padding:76px 16px}.cards,.occasion-grid{grid-template-columns:1fr}.card{padding:34px 25px;min-height:auto}.step{grid-template-columns:52px 1fr}.step-copy{padding:18px 16px}.cta-panel{padding:54px 22px}.primary-btn{width:100%;max-width:390px;letter-spacing:2px}}
+    @media(max-width:720px){.site-nav{position:absolute;padding:14px 16px}.nav-links a{display:none}.nav-links .active,.nav-links .nav-contact{display:inline-block;font-size:8px}.hero{min-height:auto;padding:120px 18px 78px}.section{padding:76px 16px}.cards,.occasion-grid{grid-template-columns:1fr}.card{padding:34px 25px;min-height:auto}.step{grid-template-columns:52px 1fr}.step-copy{padding:18px 16px}.cta-panel{padding:54px 22px}.primary-btn{width:100%;max-width:390px;letter-spacing:2px}.mail-options{grid-template-columns:1fr}.mail-option.full{grid-column:auto}}
   </style>
 </head>
 <body>
@@ -71,7 +79,7 @@
       <h1>Μια υπόθεση αποκλειστικά<br><span>για εσάς.</span></h1>
       <p class="hero-copy">Το Crime Bite μεταμορφώνεται σε μια ιδιωτική εμπειρία δείπνου και μυστηρίου για την παρέα, την εταιρεία ή τους καλεσμένους σας. Μια βραδιά με ατμόσφαιρα, συνεργασία και ανατροπές — σχεδιασμένη γύρω από τη δική σας περίσταση.</p>
       <div class="hero-rule"></div>
-      <a class="primary-btn" href="#request">Ζήτησε μια ιδιωτική βραδιά</a>
+      <a class="primary-btn js-contact-open" href="#contact-options">Ζήτησε μια ιδιωτική βραδιά</a>
     </div>
   </header>
 
@@ -119,12 +127,28 @@
         <div class="section-label">Request A Private Experience</div>
         <h2 class="section-title" id="request-title">Ας ανοίξουμε<br><span>τη δική σας υπόθεση.</span></h2>
         <p class="lead">Στείλτε μας την περίσταση, την επιθυμητή ημερομηνία και τον εκτιμώμενο αριθμό καλεσμένων. Θα επικοινωνήσουμε μαζί σας για τη διαθεσιμότητα και την πρόταση της βραδιάς.</p>
-        <a class="primary-btn" href="mailto:info@crimebite.gr?subject=Private%20Crime%20Bite%20Experience&body=Καλησπέρα%20σας%2C%0A%0AΕνδιαφέρομαι%20για%20τη%20διοργάνωση%20μιας%20ιδιωτικής%20εμπειρίας%20Crime%20Bite.%0A%0AΕίδος%20εκδήλωσης%3A%0AΕπιθυμητή%20ημερομηνία%3A%0AΕκτιμώμενος%20αριθμός%20καλεσμένων%3A%0AΤηλέφωνο%20επικοινωνίας%3A%0A%0AΠρόσθετες%20πληροφορίες%20ή%20επιθυμίες%3A%0A%0AΕυχαριστώ.">Ζήτησε μια ιδιωτική βραδιά</a>
+        <a class="primary-btn js-contact-open" href="#contact-options">Ζήτησε μια ιδιωτική βραδιά</a>
         <p class="cta-note">Εναλλακτικά, επικοινώνησε μαζί μας στο <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>.</p>
         <p class="cta-note">Η εκδήλωση ενδιαφέροντος δεν αποτελεί οριστική κράτηση. Η διαθεσιμότητα επιβεβαιώνεται κατόπιν επικοινωνίας.</p>
       </div>
     </section>
   </main>
+
+  <div class="contact-modal" id="contact-options" role="dialog" aria-modal="true" aria-labelledby="contact-options-title">
+    <div class="contact-dialog">
+      <button class="modal-close" type="button" aria-label="Κλείσιμο">×</button>
+      <div class="section-label">Private Enquiry</div>
+      <h2 id="contact-options-title">Άνοιξε τη δική σου υπόθεση.</h2>
+      <p>Επίλεξε πώς θέλεις να επικοινωνήσεις μαζί μας. Το μήνυμα θα ανοίξει προσυμπληρωμένο για να προσθέσεις μόνο τις λεπτομέρειες της βραδιάς σου.</p>
+      <div class="mail-options">
+        <a class="mail-option" id="gmail-option" target="_blank" rel="noopener noreferrer">Συνέχεια με Gmail</a>
+        <a class="mail-option" id="outlook-option" target="_blank" rel="noopener noreferrer">Συνέχεια με Outlook</a>
+        <a class="mail-option" id="mail-app-option">Άνοιγμα εφαρμογής email</a>
+        <button class="mail-option" id="copy-email" type="button">Αντιγραφή email</button>
+      </div>
+      <p class="cta-note">info@crimebite.gr</p>
+    </div>
+  </div>
 
   <footer id="contact">
     Επικοινωνία<br><br>
@@ -136,5 +160,38 @@
     </div>
     <br>Dinner · Mystery · Crime
   </footer>
+  <script>
+    const mailTo = 'info@crimebite.gr';
+    const mailSubject = 'Private Crime Bite Experience';
+    const mailBody = `Καλησπέρα σας,
+
+Ενδιαφέρομαι για τη διοργάνωση μιας ιδιωτικής εμπειρίας Crime Bite.
+
+Είδος εκδήλωσης:
+Επιθυμητή ημερομηνία:
+Εκτιμώμενος αριθμός καλεσμένων:
+Τηλέφωνο επικοινωνίας:
+
+Πρόσθετες πληροφορίες ή επιθυμίες:
+
+Ευχαριστώ.`;
+    const modal = document.getElementById('contact-options');
+    const closeButton = modal.querySelector('.modal-close');
+    const encodedSubject = encodeURIComponent(mailSubject);
+    const encodedBody = encodeURIComponent(mailBody);
+    document.getElementById('gmail-option').href = `https://mail.google.com/mail/?view=cm&fs=1&to=${mailTo}&su=${encodedSubject}&body=${encodedBody}`;
+    document.getElementById('outlook-option').href = `https://outlook.office.com/mail/deeplink/compose?to=${mailTo}&subject=${encodedSubject}&body=${encodedBody}`;
+    document.getElementById('mail-app-option').href = `mailto:${mailTo}?subject=${encodedSubject}&body=${encodedBody}`;
+    function openContact(event){event.preventDefault();modal.classList.add('open');document.body.classList.add('modal-open');closeButton.focus()}
+    function closeContact(){modal.classList.remove('open');document.body.classList.remove('modal-open')}
+    document.querySelectorAll('.js-contact-open').forEach(button=>button.addEventListener('click',openContact));
+    closeButton.addEventListener('click',closeContact);
+    modal.addEventListener('click',event=>{if(event.target===modal)closeContact()});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')closeContact()});
+    document.getElementById('copy-email').addEventListener('click',async function(){
+      try{await navigator.clipboard.writeText(mailTo);this.textContent='Το email αντιγράφηκε'}
+      catch(error){this.textContent=mailTo}
+    });
+  </script>
 </body>
 </html>
