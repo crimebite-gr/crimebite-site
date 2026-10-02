@@ -64,22 +64,27 @@
     footer a{color:#c9b18a;text-decoration:none}
     .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:25px 0 5px}.contact-links a{min-width:125px;padding:12px 17px;border:1px solid rgba(201,177,138,.23);color:#c9b18a;text-decoration:none;font:9px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;transition:.25s ease}.contact-links a:hover,.contact-links a:focus-visible{color:#fff;border-color:#b30b0b;background:rgba(179,11,11,.08)}
     @media(max-width:720px){.site-nav{position:absolute;padding:14px 16px}.nav-links a{display:none}.nav-links .active,.nav-links .nav-contact{display:inline-block;font-size:8px}.hero{min-height:auto;padding:120px 18px 78px}.section{padding:76px 16px}.cards,.occasion-grid{grid-template-columns:1fr}.card{padding:34px 25px;min-height:auto}.step{grid-template-columns:52px 1fr}.step-copy{padding:18px 16px}.cta-panel{padding:54px 22px}.primary-btn{width:100%;max-width:390px;letter-spacing:2px}.mail-options{grid-template-columns:1fr}.mail-option.full{grid-column:auto}}
+
+    .language-switch{display:flex;gap:6px;flex-shrink:0}
+    .language-switch button{background:transparent;border:0;padding:10px 8px;color:#aaa39c;font:11px Arial,sans-serif;cursor:pointer}
+    .language-switch button[aria-pressed="true"]{color:#c9b18a;border-bottom:1px solid #c9b18a}
+    @media(max-width:720px){.nav-links{gap:8px}.nav-links .active{display:none}.nav-links .nav-contact{font-size:9px;letter-spacing:1px}.language-switch button{min-height:44px}.hero{padding-top:130px}}
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Κύρια πλοήγηση">
     <a class="nav-brand" href="index.html">Crime Bite</a>
-    <div class="nav-links"><a href="index.html">Αρχική</a><a class="active" href="private-events.html">Ιδιωτικές βραδιές</a><a class="nav-contact" href="#contact">Επικοινωνία</a></div>
+    <div class="nav-links"><a href="index.html" data-i18n="t0">Αρχική</a><a class="active" href="private-events.html" data-i18n="t1">Ιδιωτικές βραδιές</a><a class="nav-contact" href="#contact" data-i18n="t2">Επικοινωνία</a><div class="language-switch" aria-label="Language"><button type="button" data-lang="el" aria-pressed="true">GR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
   </nav>
 
   <header class="hero">
     <div class="hero-inner">
       <a href="index.html"><img class="logo" src="crimebite-logo.png" alt="Crime Bite — Dinner. Mystery. Crime."></a>
       <div class="eyebrow">Private &amp; Corporate Experiences</div>
-      <h1>Μια υπόθεση αποκλειστικά<br><span>για εσάς.</span></h1>
-      <p class="hero-copy">Το Crime Bite μεταμορφώνεται σε μια ιδιωτική εμπειρία δείπνου και μυστηρίου για την παρέα, την εταιρεία ή τους καλεσμένους σας. Μια βραδιά με ατμόσφαιρα, συνεργασία και ανατροπές — σχεδιασμένη γύρω από τη δική σας περίσταση.</p>
+      <h1 data-i18n="t3">Μια υπόθεση αποκλειστικά<br><span>για εσάς.</span></h1>
+      <p class="hero-copy" data-i18n="t4">Το Crime Bite μεταμορφώνεται σε μια ιδιωτική εμπειρία δείπνου και μυστηρίου για την παρέα, την εταιρεία ή τους καλεσμένους σας. Μια βραδιά με ατμόσφαιρα, συνεργασία και ανατροπές — σχεδιασμένη γύρω από τη δική σας περίσταση.</p>
       <div class="hero-rule"></div>
-      <a class="primary-btn js-contact-open" href="#contact-options">Ζήτησε μια ιδιωτική βραδιά</a>
+      <a class="primary-btn js-contact-open" href="#contact-options" data-i18n="t5">Ζήτησε μια ιδιωτική βραδιά</a>
     </div>
   </header>
 
@@ -87,11 +92,11 @@
     <section class="section alt" aria-labelledby="formats-title">
       <div class="inner">
         <div class="section-label">Two Ways Into The Mystery</div>
-        <h2 class="section-title" id="formats-title">Η δική σας βραδιά.<br><span>Η δική σας υπόθεση.</span></h2>
-        <p class="lead">Είτε πρόκειται για μια προσωπική γιορτή είτε για μια εταιρική συνάντηση, οι καλεσμένοι δεν παρακολουθούν απλώς την ιστορία. Κάθονται στο τραπέζι, συνεργάζονται και μπαίνουν μέσα στο μυστήριο.</p>
+        <h2 class="section-title" id="formats-title" data-i18n="t6">Η δική σας βραδιά.<br><span>Η δική σας υπόθεση.</span></h2>
+        <p class="lead" data-i18n="t7">Είτε πρόκειται για μια προσωπική γιορτή είτε για μια εταιρική συνάντηση, οι καλεσμένοι δεν παρακολουθούν απλώς την ιστορία. Κάθονται στο τραπέζι, συνεργάζονται και μπαίνουν μέσα στο μυστήριο.</p>
         <div class="cards">
-          <article class="card"><div class="card-number">01 · PRIVATE</div><h2>Ιδιωτικές βραδιές</h2><p>Για γενέθλια, επετείους, bachelor parties, οικογενειακές συναντήσεις ή μια διαφορετική έξοδο με φίλους. Μια εμπειρία αποκλειστικά για τους δικούς σας καλεσμένους.</p></article>
-          <article class="card"><div class="card-number">02 · CORPORATE</div><h2>Εταιρικές εκδηλώσεις</h2><p>Μια premium πρόταση για team building, εταιρικές συναντήσεις, επιβράβευση συνεργατών και φιλοξενία πελατών — με επίκεντρο την επικοινωνία και τη συνεργασία.</p></article>
+          <article class="card"><div class="card-number">01 · PRIVATE</div><h2 data-i18n="t1">Ιδιωτικές βραδιές</h2><p data-i18n="t8">Για γενέθλια, επετείους, bachelor parties, οικογενειακές συναντήσεις ή μια διαφορετική έξοδο με φίλους. Μια εμπειρία αποκλειστικά για τους δικούς σας καλεσμένους.</p></article>
+          <article class="card"><div class="card-number">02 · CORPORATE</div><h2 data-i18n="t9">Εταιρικές εκδηλώσεις</h2><p data-i18n="t10">Μια premium πρόταση για team building, εταιρικές συναντήσεις, επιβράβευση συνεργατών και φιλοξενία πελατών — με επίκεντρο την επικοινωνία και τη συνεργασία.</p></article>
         </div>
       </div>
     </section>
@@ -99,11 +104,11 @@
     <section class="section" aria-labelledby="occasions-title">
       <div class="inner">
         <div class="section-label">Designed Around Your Guests</div>
-        <h2 class="section-title" id="occasions-title">Περισσότερο από μια εκδήλωση.</h2>
-        <p class="lead">Μια κοινή ανάμνηση που χτίζεται γύρω από το τραπέζι, χωρίς να απαιτούνται θεατρικές ικανότητες, ειδικές γνώσεις ή προηγούμενη εμπειρία.</p>
+        <h2 class="section-title" id="occasions-title" data-i18n="t11">Περισσότερο από μια εκδήλωση.</h2>
+        <p class="lead" data-i18n="t12">Μια κοινή ανάμνηση που χτίζεται γύρω από το τραπέζι, χωρίς να απαιτούνται θεατρικές ικανότητες, ειδικές γνώσεις ή προηγούμενη εμπειρία.</p>
         <div class="occasion-grid">
-          <div class="occasion"><small>Celebrate</small>Γενέθλια</div>
-          <div class="occasion"><small>Together</small>Επέτειοι</div>
+          <div class="occasion"><small>Celebrate</small><span data-i18n="t13">Γενέθλια</span></div>
+          <div class="occasion"><small>Together</small><span data-i18n="t14">Επέτειοι</span></div>
           <div class="occasion"><small>Private</small>Bachelor Parties</div>
           <div class="occasion"><small>Corporate</small>Team Building</div>
         </div>
@@ -113,11 +118,11 @@
     <section class="section alt" aria-labelledby="process-title">
       <div class="inner">
         <div class="section-label">The Private Case</div>
-        <h2 class="section-title" id="process-title">Πώς οργανώνεται</h2>
+        <h2 class="section-title" id="process-title" data-i18n="t15">Πώς οργανώνεται</h2>
         <div class="steps">
-          <article class="step"><div class="step-no">01</div><div class="step-copy"><h3>Μοιράζεστε μαζί μας την περίσταση</h3><p>Μας ενημερώνετε για την επιθυμητή ημερομηνία, τον αριθμό των καλεσμένων και το είδος της εκδήλωσης.</p></div></article>
-          <article class="step"><div class="step-no">02</div><div class="step-copy"><h3>Διαμορφώνουμε την πρόταση</h3><p>Συντονίζουμε μαζί σας τη διαθεσιμότητα και τις λεπτομέρειες της ιδιωτικής εμπειρίας.</p></div></article>
-          <article class="step"><div class="step-no">03</div><div class="step-copy"><h3>Οι καλεσμένοι παίρνουν θέση</h3><p>Το δείπνο ξεκινά και η ομάδα σας μπαίνει σε μια βραδιά έρευνας, συνεργασίας και τελικής αποκάλυψης.</p></div></article>
+          <article class="step"><div class="step-no">01</div><div class="step-copy"><h3 data-i18n="t16">Μοιράζεστε μαζί μας την περίσταση</h3><p data-i18n="t17">Μας ενημερώνετε για την επιθυμητή ημερομηνία, τον αριθμό των καλεσμένων και το είδος της εκδήλωσης.</p></div></article>
+          <article class="step"><div class="step-no">02</div><div class="step-copy"><h3 data-i18n="t18">Διαμορφώνουμε την πρόταση</h3><p data-i18n="t19">Συντονίζουμε μαζί σας τη διαθεσιμότητα και τις λεπτομέρειες της ιδιωτικής εμπειρίας.</p></div></article>
+          <article class="step"><div class="step-no">03</div><div class="step-copy"><h3 data-i18n="t20">Οι καλεσμένοι παίρνουν θέση</h3><p data-i18n="t21">Το δείπνο ξεκινά και η ομάδα σας μπαίνει σε μια βραδιά έρευνας, συνεργασίας και τελικής αποκάλυψης.</p></div></article>
         </div>
       </div>
     </section>
@@ -125,11 +130,11 @@
     <section class="section" id="request" aria-labelledby="request-title">
       <div class="cta-panel">
         <div class="section-label">Request A Private Experience</div>
-        <h2 class="section-title" id="request-title">Ας ανοίξουμε<br><span>τη δική σας υπόθεση.</span></h2>
-        <p class="lead">Στείλτε μας την περίσταση, την επιθυμητή ημερομηνία και τον εκτιμώμενο αριθμό καλεσμένων. Θα επικοινωνήσουμε μαζί σας για τη διαθεσιμότητα και την πρόταση της βραδιάς.</p>
-        <a class="primary-btn js-contact-open" href="#contact-options">Ζήτησε μια ιδιωτική βραδιά</a>
-        <p class="cta-note">Εναλλακτικά, επικοινώνησε μαζί μας στο <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>.</p>
-        <p class="cta-note">Η εκδήλωση ενδιαφέροντος δεν αποτελεί οριστική κράτηση. Η διαθεσιμότητα επιβεβαιώνεται κατόπιν επικοινωνίας.</p>
+        <h2 class="section-title" id="request-title" data-i18n="t22">Ας ανοίξουμε<br><span>τη δική σας υπόθεση.</span></h2>
+        <p class="lead" data-i18n="t23">Στείλτε μας την περίσταση, την επιθυμητή ημερομηνία και τον εκτιμώμενο αριθμό καλεσμένων. Θα επικοινωνήσουμε μαζί σας για τη διαθεσιμότητα και την πρόταση της βραδιάς.</p>
+        <a class="primary-btn js-contact-open" href="#contact-options" data-i18n="t5">Ζήτησε μια ιδιωτική βραδιά</a>
+        <p class="cta-note" data-i18n="t24">Εναλλακτικά, επικοινώνησε μαζί μας στο <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>.</p>
+        <p class="cta-note" data-i18n="t25">Η εκδήλωση ενδιαφέροντος δεν αποτελεί οριστική κράτηση. Η διαθεσιμότητα επιβεβαιώνεται κατόπιν επικοινωνίας.</p>
       </div>
     </section>
   </main>
@@ -138,20 +143,20 @@
     <div class="contact-dialog">
       <button class="modal-close" type="button" aria-label="Κλείσιμο">×</button>
       <div class="section-label">Private Enquiry</div>
-      <h2 id="contact-options-title">Άνοιξε τη δική σου υπόθεση.</h2>
-      <p>Επίλεξε πώς θέλεις να επικοινωνήσεις μαζί μας. Το μήνυμα θα ανοίξει προσυμπληρωμένο για να προσθέσεις μόνο τις λεπτομέρειες της βραδιάς σου.</p>
+      <h2 id="contact-options-title" data-i18n="t26">Άνοιξε τη δική σου υπόθεση.</h2>
+      <p data-i18n="t27">Επίλεξε πώς θέλεις να επικοινωνήσεις μαζί μας. Το μήνυμα θα ανοίξει προσυμπληρωμένο για να προσθέσεις μόνο τις λεπτομέρειες της βραδιάς σου.</p>
       <div class="mail-options">
-        <a class="mail-option" id="gmail-option" target="_blank" rel="noopener noreferrer">Συνέχεια με Gmail</a>
-        <a class="mail-option" id="outlook-option" target="_blank" rel="noopener noreferrer">Συνέχεια με Outlook</a>
-        <a class="mail-option" id="mail-app-option">Άνοιγμα εφαρμογής email</a>
-        <button class="mail-option" id="copy-email" type="button">Αντιγραφή email</button>
+        <a class="mail-option" id="gmail-option" target="_blank" rel="noopener noreferrer" data-i18n="t28">Συνέχεια με Gmail</a>
+        <a class="mail-option" id="outlook-option" target="_blank" rel="noopener noreferrer" data-i18n="t29">Συνέχεια με Outlook</a>
+        <a class="mail-option" id="mail-app-option" data-i18n="t30">Άνοιγμα εφαρμογής email</a>
+        <button class="mail-option" id="copy-email" type="button" data-i18n="t31">Αντιγραφή email</button>
       </div>
       <p class="cta-note">info@crimebite.gr</p>
     </div>
   </div>
 
   <footer id="contact">
-    Επικοινωνία<br><br>
+    <span data-contact-label data-i18n="t2">Επικοινωνία</span><br><br>
     <a href="mailto:info@crimebite.gr">info@crimebite.gr</a>
     <div class="contact-links">
       <a href="https://www.instagram.com/crimebite.gr/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -162,26 +167,17 @@
   </footer>
   <script>
     const mailTo = 'info@crimebite.gr';
-    const mailSubject = 'Private Crime Bite Experience';
-    const mailBody = `Καλησπέρα σας,
-
-Ενδιαφέρομαι για τη διοργάνωση μιας ιδιωτικής εμπειρίας Crime Bite.
-
-Είδος εκδήλωσης:
-Επιθυμητή ημερομηνία:
-Εκτιμώμενος αριθμός καλεσμένων:
-Τηλέφωνο επικοινωνίας:
-
-Πρόσθετες πληροφορίες ή επιθυμίες:
-
-Ευχαριστώ.`;
+    let mailSubject = 'Ιδιωτική εμπειρία Crime Bite';
+    let mailBody = "Καλησπέρα σας,\n\nΕνδιαφέρομαι για τη διοργάνωση μιας ιδιωτικής εμπειρίας Crime Bite.\n\nΕίδος εκδήλωσης:\nΕπιθυμητή ημερομηνία:\nΕκτιμώμενος αριθμός καλεσμένων:\nΤηλέφωνο επικοινωνίας:\n\nΠρόσθετες πληροφορίες ή επιθυμίες:\n\nΕυχαριστώ.";
     const modal = document.getElementById('contact-options');
     const closeButton = modal.querySelector('.modal-close');
+    function updateMailLinks(){
     const encodedSubject = encodeURIComponent(mailSubject);
     const encodedBody = encodeURIComponent(mailBody);
     document.getElementById('gmail-option').href = `https://mail.google.com/mail/?view=cm&fs=1&to=${mailTo}&su=${encodedSubject}&body=${encodedBody}`;
     document.getElementById('outlook-option').href = `https://outlook.office.com/mail/deeplink/compose?to=${mailTo}&subject=${encodedSubject}&body=${encodedBody}`;
     document.getElementById('mail-app-option').href = `mailto:${mailTo}?subject=${encodedSubject}&body=${encodedBody}`;
+    }
     function openContact(event){event.preventDefault();modal.classList.add('open');document.body.classList.add('modal-open');closeButton.focus()}
     function closeContact(){modal.classList.remove('open');document.body.classList.remove('modal-open')}
     document.querySelectorAll('.js-contact-open').forEach(button=>button.addEventListener('click',openContact));
@@ -189,9 +185,30 @@
     modal.addEventListener('click',event=>{if(event.target===modal)closeContact()});
     document.addEventListener('keydown',event=>{if(event.key==='Escape')closeContact()});
     document.getElementById('copy-email').addEventListener('click',async function(){
-      try{await navigator.clipboard.writeText(mailTo);this.textContent='Το email αντιγράφηκε'}
+      try{await navigator.clipboard.writeText(mailTo);this.textContent=currentLanguage==='en'?'Email copied':'Το email αντιγράφηκε'}
       catch(error){this.textContent=mailTo}
     });
+
+    const translations = {"t0":{"el":"Αρχική","en":"Home"},"t1":{"el":"Ιδιωτικές βραδιές","en":"Private events"},"t2":{"el":"Επικοινωνία","en":"Contact"},"t3":{"el":"Μια υπόθεση αποκλειστικά<br><span>για εσάς.</span>","en":"A mystery reserved<br><span>exclusively for you.</span>"},"t4":{"el":"Το Crime Bite μεταμορφώνεται σε μια ιδιωτική εμπειρία δείπνου και μυστηρίου για την παρέα, την εταιρεία ή τους καλεσμένους σας. Μια βραδιά με ατμόσφαιρα, συνεργασία και ανατροπές — σχεδιασμένη γύρω από τη δική σας περίσταση.","en":"Crime Bite becomes a private dinner and mystery experience for your friends, your team or your guests. An atmospheric evening of collaboration and unexpected twists, shaped around your occasion."},"t5":{"el":"Ζήτησε μια ιδιωτική βραδιά","en":"Request a private evening"},"t6":{"el":"Η δική σας βραδιά.<br><span>Η δική σας υπόθεση.</span>","en":"Your evening.<br><span>Your mystery.</span>"},"t7":{"el":"Είτε πρόκειται για μια προσωπική γιορτή είτε για μια εταιρική συνάντηση, οι καλεσμένοι δεν παρακολουθούν απλώς την ιστορία. Κάθονται στο τραπέζι, συνεργάζονται και μπαίνουν μέσα στο μυστήριο.","en":"Whether it is a private celebration or a corporate gathering, your guests do more than follow a story. They take their seats, work together and step into the mystery."},"t8":{"el":"Για γενέθλια, επετείους, bachelor parties, οικογενειακές συναντήσεις ή μια διαφορετική έξοδο με φίλους. Μια εμπειρία αποκλειστικά για τους δικούς σας καλεσμένους.","en":"For birthdays, anniversaries, bachelor and bachelorette parties, family gatherings or a memorable evening with friends. An experience reserved exclusively for your guests."},"t9":{"el":"Εταιρικές εκδηλώσεις","en":"Corporate events"},"t10":{"el":"Μια premium πρόταση για team building, εταιρικές συναντήσεις, επιβράβευση συνεργατών και φιλοξενία πελατών — με επίκεντρο την επικοινωνία και τη συνεργασία.","en":"A distinctive choice for team building, company gatherings, rewarding colleagues and hosting clients, with communication and collaboration at its heart."},"t11":{"el":"Περισσότερο από μια εκδήλωση.","en":"More than an event."},"t12":{"el":"Μια κοινή ανάμνηση που χτίζεται γύρω από το τραπέζι, χωρίς να απαιτούνται θεατρικές ικανότητες, ειδικές γνώσεις ή προηγούμενη εμπειρία.","en":"A shared memory created around the dinner table. No acting skills, specialist knowledge or previous experience required."},"t13":{"el":"Γενέθλια","en":"Birthdays"},"t14":{"el":"Επέτειοι","en":"Anniversaries"},"t15":{"el":"Πώς οργανώνεται","en":"How it comes together"},"t16":{"el":"Μοιράζεστε μαζί μας την περίσταση","en":"Tell us about your occasion"},"t17":{"el":"Μας ενημερώνετε για την επιθυμητή ημερομηνία, τον αριθμό των καλεσμένων και το είδος της εκδήλωσης.","en":"Share your preferred date, number of guests and type of event."},"t18":{"el":"Διαμορφώνουμε την πρόταση","en":"We put together your proposal"},"t19":{"el":"Συντονίζουμε μαζί σας τη διαθεσιμότητα και τις λεπτομέρειες της ιδιωτικής εμπειρίας.","en":"Together, we discuss availability and the details of your private experience."},"t20":{"el":"Οι καλεσμένοι παίρνουν θέση","en":"Your guests take their seats"},"t21":{"el":"Το δείπνο ξεκινά και η ομάδα σας μπαίνει σε μια βραδιά έρευνας, συνεργασίας και τελικής αποκάλυψης.","en":"Dinner begins, and your group steps into an evening of investigation, collaboration and a final revelation."},"t22":{"el":"Ας ανοίξουμε<br><span>τη δική σας υπόθεση.</span>","en":"Let’s open<br><span>your private case.</span>"},"t23":{"el":"Στείλτε μας την περίσταση, την επιθυμητή ημερομηνία και τον εκτιμώμενο αριθμό καλεσμένων. Θα επικοινωνήσουμε μαζί σας για τη διαθεσιμότητα και την πρόταση της βραδιάς.","en":"Tell us your occasion, preferred date and estimated number of guests. We will get in touch to discuss availability and a proposal for your evening."},"t24":{"el":"Εναλλακτικά, επικοινώνησε μαζί μας στο <a href=\"mailto:info@crimebite.gr\">info@crimebite.gr</a>.","en":"Alternatively, contact us at <a href=\"mailto:info@crimebite.gr\">info@crimebite.gr</a>."},"t25":{"el":"Η εκδήλωση ενδιαφέροντος δεν αποτελεί οριστική κράτηση. Η διαθεσιμότητα επιβεβαιώνεται κατόπιν επικοινωνίας.","en":"An enquiry does not constitute a confirmed booking. Availability will be confirmed when we contact you."},"t26":{"el":"Άνοιξε τη δική σου υπόθεση.","en":"Open your private case."},"t27":{"el":"Επίλεξε πώς θέλεις να επικοινωνήσεις μαζί μας. Το μήνυμα θα ανοίξει προσυμπληρωμένο για να προσθέσεις μόνο τις λεπτομέρειες της βραδιάς σου.","en":"Choose how you would like to contact us. Your email will open with a prepared message, ready for you to add the details of your evening."},"t28":{"el":"Συνέχεια με Gmail","en":"Continue with Gmail"},"t29":{"el":"Συνέχεια με Outlook","en":"Continue with Outlook"},"t30":{"el":"Άνοιγμα εφαρμογής email","en":"Open email app"},"t31":{"el":"Αντιγραφή email","en":"Copy email"}};
+    let currentLanguage='el';
+    function setLanguage(lang){
+      currentLanguage=lang==='en'?'en':'el';
+      document.documentElement.lang=currentLanguage;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=translations[el.dataset.i18n][currentLanguage]});
+      document.querySelectorAll('[data-lang]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.lang===currentLanguage)));
+      document.querySelector('.site-nav').setAttribute('aria-label',currentLanguage==='en'?'Main navigation':'Κύρια πλοήγηση');
+      closeButton.setAttribute('aria-label',currentLanguage==='en'?'Close':'Κλείσιμο');
+      document.title=currentLanguage==='en'?'Private & Corporate Events | Crime Bite':'Ιδιωτικές & Εταιρικές Βραδιές | Crime Bite';
+      document.querySelector('meta[name="description"]').content=currentLanguage==='en'?'Private and corporate Crime Bite experiences in Athens. An atmospheric mystery dinner reserved exclusively for your guests.':'Ιδιωτικές και εταιρικές εμπειρίες Crime Bite στην Αθήνα. Ένα premium δείπνο μυστηρίου αποκλειστικά για τους καλεσμένους σας.';
+      mailSubject=currentLanguage==='en'?'Private Crime Bite Experience':'Ιδιωτική εμπειρία Crime Bite';
+      mailBody=currentLanguage==='en'?"Hello,\n\nI am interested in arranging a private Crime Bite experience.\n\nType of event:\nPreferred date:\nEstimated number of guests:\nContact phone number:\n\nAdditional information or requests:\n\nThank you.":"Καλησπέρα σας,\n\nΕνδιαφέρομαι για τη διοργάνωση μιας ιδιωτικής εμπειρίας Crime Bite.\n\nΕίδος εκδήλωσης:\nΕπιθυμητή ημερομηνία:\nΕκτιμώμενος αριθμός καλεσμένων:\nΤηλέφωνο επικοινωνίας:\n\nΠρόσθετες πληροφορίες ή επιθυμίες:\n\nΕυχαριστώ.";
+      updateMailLinks();
+      const url=new URL(window.location.href);if(currentLanguage==='en')url.searchParams.set('lang','en');else url.searchParams.delete('lang');
+      history.replaceState(null,'',url);
+    }
+    document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.lang)));
+    setLanguage(new URLSearchParams(window.location.search).get('lang'));
+
   </script>
 </body>
 </html>
