@@ -1218,6 +1218,15 @@
       .nav-links { gap: 10px; }
       .nav-links .nav-highlight, .nav-links .nav-contact { letter-spacing: 1px; }
     }
+    .event-date { margin: 0 auto 28px; color: #c9b18a; font: 16px/1.7 Arial, sans-serif; }
+    #next-event .countdown-number { color: #c9b18a; font-variant-numeric: tabular-nums; }
+    .event-schedule { max-width: 600px; margin: 28px auto 0; font: 13px/1.8 Arial, sans-serif; }
+    .event-schedule summary { cursor: pointer; color: #c9b18a; padding: 10px; }
+    .event-schedule ul { list-style: none; padding: 10px 0; }
+    .event-schedule li { border-bottom: 1px solid rgba(201,177,138,.15); }
+    .event-schedule a { display: block; padding: 12px; color: #d7d0c8; text-decoration: none; }
+    .event-schedule a:hover, .event-schedule a:focus-visible { color: #fff; background: rgba(201,177,138,.07); }
+    [hidden] { display: none !important; }
   </style>
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
@@ -1250,18 +1259,21 @@
     </section>
   </main>
 
-  <section class="countdown-section" aria-labelledby="countdown-title">
+  <section class="countdown-section" id="next-event" aria-labelledby="countdown-title">
     <div class="section-inner">
-      <div class="section-label">Priority Access</div>
-      <h2 class="section-title" id="countdown-title">Η υπόθεση ανοίγει σε…</h2>
-      <div class="countdown" aria-live="polite">
+      <div class="section-label">The Next Case</div>
+      <h2 class="section-title" id="countdown-title">Η επόμενη υπόθεση ανοίγει σε…</h2>
+      <p class="event-date" id="event-date" aria-live="polite">Τρίτη 3 Νοεμβρίου 2026 · 21:00</p>
+      <div class="countdown" role="timer" aria-label="Χρόνος μέχρι την επόμενη βραδιά" aria-live="off">
         <div class="countdown-unit"><span class="countdown-number" id="days">00</span><span class="countdown-label">ΗΜΕΡΕΣ</span></div>
         <div class="countdown-unit"><span class="countdown-number" id="hours">00</span><span class="countdown-label">ΩΡΕΣ</span></div>
         <div class="countdown-unit"><span class="countdown-number" id="minutes">00</span><span class="countdown-label">ΛΕΠΤΑ</span></div>
         <div class="countdown-unit"><span class="countdown-number" id="seconds">00</span><span class="countdown-label">ΔΕΥΤΕΡΟΛΕΠΤΑ</span></div>
       </div>
-      <p class="proof-note">Η λίστα των πρώτων θα ενημερωθεί πριν ανοίξει η δημόσια προπώληση.</p>
-      <a class="primary-btn" href="#priority-list">Μπες στη λίστα των πρώτων</a>
+      <p class="proof-note">Ενθύμιον Restaurant · Περιορισμένες θέσεις ανά βραδιά.</p>
+      <a class="primary-btn" id="event-tickets" href="https://www.more.com/gr-el/tickets/happenings/crime-bite-o-mauros-kathreftis/" target="_blank" rel="noopener noreferrer">Κλείσε τη θέση σου</a>
+      <details class="event-schedule"><summary>Δες όλες τις ημερομηνίες</summary><ul id="event-dates"></ul></details>
+      <noscript><p class="proof-note">Δες τις επόμενες ημερομηνίες και κλείσε θέση στη More.</p></noscript>
     </div>
   </section>
 
@@ -1707,8 +1719,6 @@
     function openPresale() {
       if (presaleOpened) return;
       presaleOpened = true;
-      document.querySelector('.countdown').hidden = true;
-      document.querySelector('.countdown').style.display = 'none';
       document.querySelectorAll('a.primary-btn[href="#priority-list"]').forEach(link => {
         link.href = ticketUrl;
         link.textContent = 'Κλείσε τη θέση σου';
@@ -1728,21 +1738,75 @@
       navPriority.target = '_blank';
       navPriority.rel = 'noopener noreferrer';
     }
+    // Confirmed public performances on More. Add, remove or update dates here.
+    // Explicit Athens offsets keep countdowns correct regardless of visitor timezone.
+    const eventDates = [
+      '2026-11-03T21:00:00+02:00', '2026-11-10T21:00:00+02:00',
+      '2026-11-17T21:00:00+02:00', '2026-11-24T21:00:00+02:00',
+      '2026-12-01T21:00:00+02:00', '2026-12-08T21:00:00+02:00',
+      '2026-12-15T21:00:00+02:00', '2026-12-22T21:00:00+02:00'
+    ].map(date => ({ date, timestamp: Date.parse(date), url: ticketUrl }))
+      .sort((a, b) => a.timestamp - b.timestamp);
+    const dateFormatter = new Intl.DateTimeFormat('el-GR', {
+      timeZone: 'Europe/Athens', weekday: 'long', day: 'numeric',
+      month: 'long', year: 'numeric'
+    });
+    const timeFormatter = new Intl.DateTimeFormat('el-GR', {
+      timeZone: 'Europe/Athens', hour: '2-digit', minute: '2-digit', hour12: false
+    });
     const pad = value => String(value).padStart(2, '0');
+    const nextEvent = now => eventDates.find(event => event.timestamp > now);
+    const formatEvent = event => {
+      const date = new Date(event.timestamp);
+      const label = dateFormatter.format(date);
+      return label.charAt(0).toUpperCase() + label.slice(1) + ' · ' + timeFormatter.format(date);
+    };
+    let displayedEvent;
     function updateCountdown() {
-      const distance = presaleDate.getTime() - Date.now();
-      if (distance <= 0) {
-        document.getElementById('countdown-title').textContent = 'Η προπώληση άνοιξε';
-        openPresale();
-        return;
+      const now = Date.now();
+      if (now >= presaleDate.getTime()) openPresale();
+      const event = nextEvent(now);
+      const key = event ? event.date : 'complete';
+      if (displayedEvent !== key) {
+        displayedEvent = key;
+        const countdown = document.querySelector('.countdown');
+        countdown.hidden = !event;
+        document.getElementById('countdown-title').textContent = event
+          ? 'Η επόμενη υπόθεση ανοίγει σε…' : 'Οι επόμενες βραδιές θα ανακοινωθούν σύντομα';
+        document.getElementById('event-date').textContent = event
+          ? formatEvent(event) : 'Μείνε μέσα στο μυστήριο.';
+        const button = document.getElementById('event-tickets');
+        button.href = event ? event.url : '#newsletter';
+        button.textContent = event ? 'Κλείσε τη θέση σου' : 'Μάθε πρώτος τα νέα';
+        if (event) { button.target = '_blank'; button.rel = 'noopener noreferrer'; }
+        else { button.removeAttribute('target'); button.removeAttribute('rel'); }
+        const list = document.getElementById('event-dates');
+        list.replaceChildren();
+        eventDates.filter(item => item.timestamp > now).forEach(item => {
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = formatEvent(item);
+          li.appendChild(link);
+          list.appendChild(li);
+        });
+        document.querySelector('.event-schedule').hidden = !event;
       }
-      document.getElementById('days').textContent = pad(Math.floor(distance / 86400000));
-      document.getElementById('hours').textContent = pad(Math.floor((distance % 86400000) / 3600000));
-      document.getElementById('minutes').textContent = pad(Math.floor((distance % 3600000) / 60000));
-      document.getElementById('seconds').textContent = pad(Math.floor((distance % 60000) / 1000));
+      if (!event) return;
+      const distance = Math.max(0, Math.ceil((event.timestamp - now) / 1000));
+      document.getElementById('days').textContent = pad(Math.floor(distance / 86400));
+      document.getElementById('hours').textContent = pad(Math.floor(distance % 86400 / 3600));
+      document.getElementById('minutes').textContent = pad(Math.floor(distance % 3600 / 60));
+      document.getElementById('seconds').textContent = pad(distance % 60);
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) updateCountdown();
+    });
+    window.addEventListener('pageshow', updateCountdown);
   </script>
 
 </body>
