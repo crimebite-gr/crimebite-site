@@ -1262,8 +1262,8 @@
   <section class="countdown-section" id="next-event" aria-labelledby="countdown-title">
     <div class="section-inner">
       <div class="section-label">The Next Case</div>
-      <h2 class="section-title" id="countdown-title">Η επόμενη υπόθεση ανοίγει σε…</h2>
-      <p class="event-date" id="event-date" aria-live="polite">Τρίτη 3 Νοεμβρίου 2026 · 21:00</p>
+      <h2 class="section-title" id="countdown-title">Η επόμενη βραδιά ξεκινά με την προσέλευσή σου σε…</h2>
+      <p class="event-date" id="event-date" aria-live="polite">Τρίτη 3 Νοεμβρίου 2026 · Προσέλευση 20:45 · Έναρξη 21:00</p>
       <div class="countdown" role="timer" aria-label="Χρόνος μέχρι την επόμενη βραδιά" aria-live="off">
         <div class="countdown-unit"><span class="countdown-number" id="days">00</span><span class="countdown-label">ΗΜΕΡΕΣ</span></div>
         <div class="countdown-unit"><span class="countdown-number" id="hours">00</span><span class="countdown-label">ΩΡΕΣ</span></div>
@@ -1739,12 +1739,12 @@
       navPriority.rel = 'noopener noreferrer';
     }
     // Confirmed public performances on More. Add, remove or update dates here.
-    // Explicit Athens offsets keep countdowns correct regardless of visitor timezone.
+    // Countdown targets arrival at 20:45 Athens time; the performance starts at 21:00.
     const eventDates = [
-      '2026-11-03T21:00:00+02:00', '2026-11-10T21:00:00+02:00',
-      '2026-11-17T21:00:00+02:00', '2026-11-24T21:00:00+02:00',
-      '2026-12-01T21:00:00+02:00', '2026-12-08T21:00:00+02:00',
-      '2026-12-15T21:00:00+02:00', '2026-12-22T21:00:00+02:00'
+      '2026-11-03T20:45:00+02:00', '2026-11-10T20:45:00+02:00',
+      '2026-11-17T20:45:00+02:00', '2026-11-24T20:45:00+02:00',
+      '2026-12-01T20:45:00+02:00', '2026-12-08T20:45:00+02:00',
+      '2026-12-15T20:45:00+02:00', '2026-12-22T20:45:00+02:00'
     ].map(date => ({ date, timestamp: Date.parse(date), url: ticketUrl }))
       .sort((a, b) => a.timestamp - b.timestamp);
     const dateFormatter = new Intl.DateTimeFormat('el-GR', {
@@ -1759,7 +1759,7 @@
     const formatEvent = event => {
       const date = new Date(event.timestamp);
       const label = dateFormatter.format(date);
-      return label.charAt(0).toUpperCase() + label.slice(1) + ' · ' + timeFormatter.format(date);
+      return label.charAt(0).toUpperCase() + label.slice(1) + ' · Προσέλευση ' + timeFormatter.format(date) + ' · Έναρξη 21:00';
     };
     let displayedEvent;
     function updateCountdown() {
@@ -1772,7 +1772,7 @@
         const countdown = document.querySelector('.countdown');
         countdown.hidden = !event;
         document.getElementById('countdown-title').textContent = event
-          ? 'Η επόμενη υπόθεση ανοίγει σε…' : 'Οι επόμενες βραδιές θα ανακοινωθούν σύντομα';
+          ? 'Η επόμενη βραδιά ξεκινά με την προσέλευσή σου σε…' : 'Οι επόμενες βραδιές θα ανακοινωθούν σύντομα';
         document.getElementById('event-date').textContent = event
           ? formatEvent(event) : 'Μείνε μέσα στο μυστήριο.';
         const button = document.getElementById('event-tickets');
