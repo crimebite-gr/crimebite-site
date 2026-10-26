@@ -1227,6 +1227,19 @@
     .event-schedule a { display: block; padding: 12px; color: #d7d0c8; text-decoration: none; }
     .event-schedule a:hover, .event-schedule a:focus-visible { color: #fff; background: rgba(201,177,138,.07); }
     [hidden] { display: none !important; }
+
+    /* Accessible mobile navigation: keep every destination available. */
+    .mobile-menu-toggle { display: none; }
+    @media (max-width: 700px) {
+      .site-nav { position: absolute; align-items: center; flex-wrap: wrap; gap: 10px; }
+      .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 11px 13px; border: 1px solid rgba(201,177,138,.55); border-radius: 2px; background: rgba(10,10,10,.9); color: #eee4d5; font: 11px Arial,sans-serif; letter-spacing: 1px; cursor: pointer; }
+      .mobile-menu-toggle:focus-visible { outline: 2px solid #c9b18a; outline-offset: 3px; }
+      .nav-links { display: none; flex-basis: 100%; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; background: rgba(6,6,6,.98); border-top: 1px solid rgba(201,177,138,.25); }
+      .nav-links.is-open { display: flex; }
+      .nav-links a, .nav-links .nav-highlight, .nav-links .nav-contact { display: block; padding: 13px 12px; font-size: 11px; letter-spacing: 1px; line-height: 1.5; text-align: left; }
+      .nav-private span[lang="en"] { display: inline; }
+      .nav-private .private-separator { display: inline; }
+    }
   </style>
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
@@ -1235,7 +1248,8 @@
 <body>
   <nav class="site-nav" aria-label="Κύρια πλοήγηση">
     <a class="nav-brand" href="index.html">Crime Bite</a>
-    <div class="nav-links">
+    <button class="mobile-menu-toggle" type="button" aria-controls="mobile-navigation" aria-expanded="false">☰ <span>ΜΕΝΟΥ</span></button>
+    <div class="nav-links" id="mobile-navigation">
       <a href="#experience-title">Η εμπειρία</a>
       <a href="contests.html">Διαγωνισμοί &amp; Προσφορές</a>
       <a class="nav-highlight nav-private" href="private-events.html">Ιδιωτικές βραδιές <span class="private-separator">/</span> <span lang="en">Private Events</span></a>
@@ -1822,6 +1836,21 @@
     window.addEventListener('pageshow', updateCountdown);
   </script>
 
+<script>
+  (function () {
+    const button = document.querySelector('.mobile-menu-toggle');
+    const links = document.getElementById('mobile-navigation');
+    if (!button || !links) return;
+    function closeMenu() { links.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false'); }
+    button.addEventListener('click', function () {
+      const open = links.classList.toggle('is-open');
+      button.setAttribute('aria-expanded', String(open));
+    });
+    links.addEventListener('click', function (event) { if (event.target.closest('a')) closeMenu(); });
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 700) closeMenu(); });
+  })();
+</script>
 </body>
 
 </html>
