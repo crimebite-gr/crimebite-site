@@ -1766,13 +1766,13 @@
       navPriority.rel = 'noopener noreferrer';
     }
     // Confirmed public performances on More. Add, remove or update dates here.
-    // Countdown targets arrival at 20:45 Athens time; the performance starts at 21:00.
+    // Countdown targets arrival time in Athens; each performance has its own start time.
     const eventDates = [
       '2026-11-03T20:45:00+02:00', '2026-11-10T20:45:00+02:00',
       '2026-11-17T20:45:00+02:00', '2026-11-24T20:45:00+02:00',
-      '2026-12-01T20:45:00+02:00', '2026-12-08T20:45:00+02:00',
+      '2026-12-01T20:45:00+02:00', '2026-12-06T19:45:00+02:00',
       '2026-12-15T20:45:00+02:00', '2026-12-22T20:45:00+02:00'
-    ].map(date => ({ date, timestamp: Date.parse(date), url: ticketUrl }))
+    ].map(date => ({ date, timestamp: Date.parse(date), startTime: date.startsWith('2026-12-06') ? '20:00' : '21:00', url: ticketUrl }))
       .sort((a, b) => a.timestamp - b.timestamp);
     const dateFormatter = new Intl.DateTimeFormat('el-GR', {
       timeZone: 'Europe/Athens', weekday: 'long', day: 'numeric',
@@ -1786,7 +1786,7 @@
     const formatEvent = event => {
       const date = new Date(event.timestamp);
       const label = dateFormatter.format(date);
-      return label.charAt(0).toUpperCase() + label.slice(1) + ' · Προσέλευση ' + timeFormatter.format(date) + ' · Έναρξη 21:00';
+      return label.charAt(0).toUpperCase() + label.slice(1) + ' · Προσέλευση ' + timeFormatter.format(date) + ' · Έναρξη ' + event.startTime;
     };
     let displayedEvent;
     function updateCountdown() {
